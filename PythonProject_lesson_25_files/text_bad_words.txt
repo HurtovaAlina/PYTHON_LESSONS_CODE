@@ -1,0 +1,7 @@
+This is a simple text file containing some words.
+Badword appears here, and anotherbadword appears here too.
+But some words are perfectly fine.
+
+This is a simple text file containing some words.
+appears here, and appears here too.
+But some words are perfectly fine.

@@ -1,0 +1,4 @@
+This is a small example of a text file.
+You can edit this text or replace it with your own content.
+Creation date: March 17, 2026
+Location: Uzhhorod
