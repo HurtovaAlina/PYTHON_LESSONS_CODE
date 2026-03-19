@@ -18,4 +18,4 @@ git config --global user.email "hurtovaalina2912@gmail.com"
 # git restore --staged <file>..." скасувати підтверджені зміни
 
 # скасувати коміт
-#git reset --hard HEAD~2 (2 останніх коміта)п
+#git reset --hard HEAD~2 (2 останніх коміта)
