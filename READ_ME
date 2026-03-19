@@ -1,2 +1,15 @@
 git config --global user.name "HurtovaAlina"
 git config --global user.email "hurtovaalina2912@gmail.com"
+
+# побачити статус усіх змін
+# git status
+
+# підвердити зміни у файлі
+# git add file
+# git add .  # обавити всі зміни в усіх файлах
+
+# об'єднуємо зміни в один "версія" і добавляємо повідомлення з поясненням
+# git commit -m "повідомлення"
+
+# коміт на гітхаб
+# git push
