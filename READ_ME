@@ -16,3 +16,6 @@ git config --global user.email "hurtovaalina2912@gmail.com"
 
 # restore не може скасувати підтверджені зміни
 # git restore --staged <file>..." скасувати підтверджені зміни
+
+# скасувати коміт
+#
