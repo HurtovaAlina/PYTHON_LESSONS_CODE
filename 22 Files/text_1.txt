@@ -1,0 +1,5 @@
+Hello world!
+This is a sample text file.
+It contains several lines.
+There are also some digits: 12345
+Vowels are also included.

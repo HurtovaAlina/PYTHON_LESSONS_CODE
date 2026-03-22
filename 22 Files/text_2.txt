@@ -1,0 +1,2 @@
+Python is great. I love Python, because Python is easy to learn.
+Many people use Python for testing. Python is popular in QA.
