@@ -21,10 +21,23 @@ git restore
 # git restore --staged <file>..." скасувати підтверджені зміни
 
 # скасувати коміт
-#git reset --hard HEAD~2 (2 останніх коміта)
+# git reset --hard HEAD~2 (2 останніх коміта)
+
+# shows all branches
+# git branch
+
+# create branch
+# git branch [branch_name] # what should we do on branch
+
+# go to branch
+# git checkout [branch_name]
+
+# встановити pre-commit
+# pip install pre-commit
+# pre-commit install
 
 # перевірити перед комітом
-pre-commit run --all-files
+# pre-commit run --all-files
 
 # Курс Python та Штучний Інтелект
 
