@@ -19,5 +19,10 @@ def new_xy(x, y):
 print(new_xy(3, 4))
 
 
-with open("new-text.txt", "r") as file:
-    print(file.read())
+def read_file(filename):
+    with open(filename, "r") as file:
+        print(file.read())
+
+print(read_file("new-text.txt"))
+
+print_text()
