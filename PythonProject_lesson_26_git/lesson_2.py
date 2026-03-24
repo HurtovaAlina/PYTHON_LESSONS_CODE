@@ -12,3 +12,8 @@ def print_text(text):
     print(text)
 
 print(print_text("Hello world"))
+
+def new_xy(x, y):
+    return x * y
+
+print(new_xy(3, 4))
