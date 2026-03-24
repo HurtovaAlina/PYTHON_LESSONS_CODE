@@ -17,3 +17,7 @@ def new_xy(x, y):
     return x * y
 
 print(new_xy(3, 4))
+
+
+with open("new-text.txt", "r") as file:
+    print(file.read())
