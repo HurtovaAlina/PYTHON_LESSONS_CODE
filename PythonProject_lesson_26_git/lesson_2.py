@@ -24,3 +24,5 @@ def read_file(filename):
         print(file.read())
 
 print(read_file("new-text.txt"))
+
+print_text()
