@@ -1,6 +1,4 @@
-import re
-
-re_numbers_1 = r"^\d+$" # "123", "1"
+re_numbers_1 = r"^\d+$"  # "123", "1"
 re_numbers_2 = r"\d+"
 re_test = r"cat"
 
@@ -43,7 +41,7 @@ re_test = r"cat"
 # text = re.sub(r"\d+", "", "a1 b22 c333") # returns qty what was replaced
 # print(text)
 
-#атомарне групування, *+ ++ ?+ compile - flags
+# атомарне групування, *+ ++ ?+ compile - flags
 
 # перевірка номеру телефону україни (+380)
 # +380987654321, 380987654321, 0987654321 valid phone
@@ -106,9 +104,9 @@ re_test = r"cat"
 # print(ls[::2]) # each second ['Den', 'Alice']
 
 ls = ["Den", "John", "Alice", "Bob"]
-#unpack to variables:  _ not used
+# unpack to variables:  _ not used
 # a, b, *x = ls # a, b, x, _ = ls  in x all remainig elements
-#a, b, x, _ = ls
+# a, b, x, _ = ls
 # *a, b, x = ls # last 2 elements were saved in variable
 a, *b, x = ls
-print(a,b,x)
+print(a, b, x)

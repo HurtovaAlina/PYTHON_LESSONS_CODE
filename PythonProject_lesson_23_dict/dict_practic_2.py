@@ -3,7 +3,7 @@
 # рядок. Збережіть усі імена в множині. Якщо ім’я вводиться
 # повторно, то вивести повідомлення про це.
 # Виведіть кількість людей
-from typing import Dict, Set, List
+
 #
 # all_people = set()
 # while True:
@@ -60,8 +60,6 @@ from typing import Dict, Set, List
 # group_2 = ["Maria", "Dmytro", "Sofia"]
 #
 # check_students_in_groups(students, group_1, group_2)
-
-
 
 
 # Завдання 3
@@ -142,6 +140,7 @@ from typing import Dict, Set, List
 # чи склад команди правильний.
 # Також виведіть імена всіх гравців.
 
+
 def free_position(team, limits):
     free_positions = {}
     for position, players in team.items():
@@ -150,20 +149,9 @@ def free_position(team, limits):
     return free_positions
 
 
+team = {"воротар": [], "захисник": [], "півзахисник": [], "нападник": []}
 
-team = {
-    "воротар": [],
-    "захисник": [],
-    "півзахисник": [],
-    "нападник": []
-}
-
-limits = {
-    "воротар": 1,
-    "захисник": 4,
-    "півзахисник": 4,
-    "нападник": 2
-}
+limits = {"воротар": 1, "захисник": 4, "півзахисник": 4, "нападник": 2}
 
 while True:
     if free_position(team, limits):
@@ -188,19 +176,9 @@ while True:
             print("Position doesn't exist")
             continue
     else:
-        print(f"Team is completed")
+        print("Team is completed")
         print(team)
         break
-
-
-
-
-
-
-
-
-
-
 
 
 # Завдання 6

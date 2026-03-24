@@ -1,5 +1,5 @@
 print("Hello world")
-#new line
+# new line
 print()
 print("2")
-#new changes
+# new changes

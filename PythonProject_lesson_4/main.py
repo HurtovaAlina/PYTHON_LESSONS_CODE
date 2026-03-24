@@ -86,8 +86,8 @@ import math
 # b = float(input("Enter b: "))
 # print(a+b, a-b, a*b)
 
-#1234
-#4321
+# 1234
+# 4321
 n = 1234
 n4 = n % 10
 n3 = (n // 10) % 10
@@ -96,21 +96,21 @@ n1 = n // 1000
 
 print(n4, n3, n2, n1)
 x1 = int(f"{n4}{n3}{n2}{n1}")
-x2 = n4*10**3 + n3 * 10 **2 + n2 *10+n1
+x2 = n4 * 10**3 + n3 * 10**2 + n2 * 10 + n1
 print(x1, x2)
 
 # Завдання 1
 # Користувач вводить з клавіатури температуру за шкалою Цельсія.
 # Потрібно перевести температуру в градуси за Фаренгейтом і вивести на екран.
 temp_C = float(input("Temperature C: "))
-temp_F = temp_C*9/5+32
+temp_F = temp_C * 9 / 5 + 32
 print("Temperature F: ", temp_F)
 
-#Завдання 2
-#Користувач вводить із клавіатури значення в євро. Напишіть програму,
-#яка переводить цю суму в долари, використовуючи курс євро, введений з клавіатури. Результат виводиться на екран.
+# Завдання 2
+# Користувач вводить із клавіатури значення в євро. Напишіть програму,
+# яка переводить цю суму в долари, використовуючи курс євро, введений з клавіатури. Результат виводиться на екран.
 euro = float(input("Enter euro: "))
-euro_to_doll = float(input("Enter euro to dollar: ")) # приклад: євро = 1.17 долл.
+euro_to_doll = float(input("Enter euro to dollar: "))  # приклад: євро = 1.17 долл.
 print(f"You need to pay {euro*euro_to_doll} dollars for {euro} euro")
 
 
@@ -122,22 +122,22 @@ print(f"You need to pay {euro*euro_to_doll} dollars for {euro} euro")
 # 6
 number = int(input("Enter two-digit number : "))
 n1 = int(number % 10)
-n2 = int((number-n1)/10)
+n2 = int((number - n1) / 10)
 print(n1)
 print(n2)
 
-#Завдання 4
-#Користувач вводить із клавіатури дві цифри. Необхідно створити число, що містить ці цифри.
-#Наприклад, якщо з клавіатури введено 9, 7, тоді потрібно сформувати число 97.
-n1= int(input("Enter n1: "))
+# Завдання 4
+# Користувач вводить із клавіатури дві цифри. Необхідно створити число, що містить ці цифри.
+# Наприклад, якщо з клавіатури введено 9, 7, тоді потрібно сформувати число 97.
+n1 = int(input("Enter n1: "))
 n2 = int(input("Enter n2: "))
-res = str(n1)+str(n2)
+res = str(n1) + str(n2)
 print(res)
 
-#Завдання 5
-#Користувач із клавіатури вводить тризначне число. Наприклад, 891.
-#Потрібно показати на різних рядках значення першого, другого і третього розряду.
-#Також потрібно показати на окремому рядку суму цих трьох чисел. У нашому випадку це виглядатиме так:
+# Завдання 5
+# Користувач із клавіатури вводить тризначне число. Наприклад, 891.
+# Потрібно показати на різних рядках значення першого, другого і третього розряду.
+# Також потрібно показати на окремому рядку суму цих трьох чисел. У нашому випадку це виглядатиме так:
 # 8
 # 9
 # 1
@@ -151,7 +151,7 @@ n3 = n // 100
 print(n3)
 print(n2)
 print(n1)
-print(n3+n2+n1)
+print(n3 + n2 + n1)
 
 # Завдання 6
 # Користувач вводить суму вкладу та відсоткову ставку. Напишіть програму, яка:
@@ -159,12 +159,12 @@ print(n3+n2+n1)
 # Виводить суму вкладу за кожен рік окремо.
 deposit = float(input("Enter deposit: "))
 interest_rate = float(input("Enter interest rate % for year: "))
-sum = deposit * (1+interest_rate/100)**5
+sum = deposit * (1 + interest_rate / 100) ** 5
 print(sum)
 
-#Задача - Піцца-паті: скільки піц замовити і скільки лишиться шматків
+# Задача - Піцца-паті: скільки піц замовити і скільки лишиться шматків
 
-#Умова
+# Умова
 # Введіть з клавіатури:
 # people - скільки людей на вечірці
 # slices_per_person - скільки шматків зїдає 1 людина
@@ -184,11 +184,11 @@ slices_per_pizza = int(input("Enter slices in pizza: "))
 pizza_price = float(input("Enter price of 1 pizza"))
 delivery_per_pizza = float(input("Enter price of delivery for 1 pizza"))
 
-min_qty_slices = people*slices_per_person
-min_pizza_qty = math.ceil(min_qty_slices/slices_per_pizza)
-slices_remain = (min_pizza_qty*slices_per_pizza-min_qty_slices)
-total_price = (pizza_price+delivery_per_pizza)*min_pizza_qty
-price_per_person = total_price/people
+min_qty_slices = people * slices_per_person
+min_pizza_qty = math.ceil(min_qty_slices / slices_per_pizza)
+slices_remain = min_pizza_qty * slices_per_pizza - min_qty_slices
+total_price = (pizza_price + delivery_per_pizza) * min_pizza_qty
+price_per_person = total_price / people
 
 print(min_pizza_qty)
 print(slices_remain)

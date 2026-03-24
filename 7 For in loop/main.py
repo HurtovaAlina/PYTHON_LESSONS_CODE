@@ -1,5 +1,5 @@
-import random
 import math
+import random
 
 # Завдання 1
 # Користувач вводить висоту трикутника і символ для заповнення. Програма повинна вивести трикутник, вирівняний по правому краю.
@@ -14,8 +14,8 @@ import math
 
 h = int(input("Enter height of triangle "))
 c = input("Enter char ")
-for i in range(1, h+1):
-    print(c*i)
+for i in range(1, h + 1):
+    print(c * i)
 
 # Завдання 2
 # Користувач вводить розміри дошки (ширину і висоту) і два символи для клітинок. Програма повинна відобразити
@@ -24,20 +24,20 @@ for i in range(1, h+1):
 width = int(input("Enter width "))
 height = int(input("Enter height "))
 c1 = input("Enter c1 ")
-c2 = input ("Enter c2 ")
+c2 = input("Enter c2 ")
 
 for i in range(width):
     for j in range(height):
-        if i %2 != 0:
-            if j %2 !=0:
-                print(c1, end = "\t")
+        if i % 2 != 0:
+            if j % 2 != 0:
+                print(c1, end="\t")
             else:
-                print(c2,  end = "\t")
+                print(c2, end="\t")
         else:
-            if j %2 !=0:
-                print(c2,  end = "\t")
+            if j % 2 != 0:
+                print(c2, end="\t")
             else:
-                print(c1,  end = "\t")
+                print(c1, end="\t")
     print()
 
 # Завдання 3
@@ -53,22 +53,24 @@ i = 0
 number = ""
 while True:
     number = number + str(digit[i])
-    i +=1
-    if i>3:
+    i += 1
+    if i > 3:
         break
 
 print(number)
-user_num = input("Try to guess 4-digit number without replicated digits, enter your variant ")
+user_num = input(
+    "Try to guess 4-digit number without replicated digits, enter your variant "
+)
 
 bulls = 0
 cows = 0
 count = 0
 for i in user_num:
-    if i == number[count] :
-        bulls +=1
+    if i == number[count]:
+        bulls += 1
     else:
-        cows +=1
-    count +=1
+        cows += 1
+    count += 1
 print("You've guessed: ", bulls)
 print("Wrong: ", cows)
 if bulls == 4:
@@ -87,9 +89,9 @@ number = input("Enter number ")
 count = 0
 sum_of_digits = 0
 for i in number:
-    count+=1
+    count += 1
 for i in number:
-    sum_of_digits = sum_of_digits + int(i)**count
+    sum_of_digits = sum_of_digits + int(i) ** count
 if number == str(sum_of_digits):
     print(f"It is Armstrong's number {number} = {sum_of_digits}")
 else:
@@ -113,13 +115,13 @@ d = math.ceil(h / 2)
 c = input("Enter char to fill ")
 char = 0
 
-for i in range(1, h+1):
+for i in range(1, h + 1):
     if i <= d:
-        char = (2*i-1)
-        print(char*c)
+        char = 2 * i - 1
+        print(char * c)
     else:
-        char = char -2
-        print(char*c)
+        char = char - 2
+        print(char * c)
 
 # Завдання 6
 # Користувач вводить висоту ромба (непарне число) і символ для заповнення. Програма повинна вивести порожнистий ромб.
@@ -131,19 +133,18 @@ h = int(input("Enter height of diamond (odd number) "))
 d = math.ceil(h / 2)
 c = input("Enter char to fill ")
 
-for i in range(1, h+1):
-    for j in range(1, h+1):
-        if  i <= d:
+for i in range(1, h + 1):
+    for j in range(1, h + 1):
+        if i <= d:
             if (i == 1 or i == h) and j == d:
-                print(c, end = "")
-            elif j == (d - i + 1) or j == (d + i -1):
-                print(c, end = "")
+                print(c, end="")
+            elif j == (d - i + 1) or j == (d + i - 1):
+                print(c, end="")
             else:
-                print(" ", end = "")
+                print(" ", end="")
         else:
             if j == i - d + 1 or j == h - i + d:
-                print(c, end = "")
+                print(c, end="")
             else:
-                print(" ", end = "")
+                print(" ", end="")
     print()
-

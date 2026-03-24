@@ -10,10 +10,7 @@
 # 7 -- вивести усі згадані гуртки
 
 
-from typing import Dict, Set, List
-
-
-StudentsDict = Dict[str, Set[str]]  # тип для зручності
+StudentsDict = dict[str, set[str]]  # тип для зручності
 
 
 def get_student_name() -> str:
@@ -29,7 +26,7 @@ def get_student_name() -> str:
         student = student.capitalize()  # зробити першу літеру великою
 
         # перевірки на неправильність
-        if student == '':
+        if student == "":
             print("Ви нічого не ввели")
             continue
 
@@ -67,7 +64,7 @@ def add_student(students: StudentsDict, student: str) -> None:
     # перевіряє чи цей студент вже є в словнику
     if is_student_registered(students, student):
         print("Студент вже зареєстрований")
-        return # функція закінчила роботу
+        return  # функція закінчила роботу
 
     # return не спрацював -> студент не зареєстрований
     students[student] = set()  # {} -- порожній словник
@@ -122,7 +119,7 @@ def remove_club_for_student(students: StudentsDict, student: str, club: str) -> 
     clubs.remove(club)
 
 
-def get_students_by_clubs(students: StudentsDict, target_clubs: Set[str]) -> List[str]:
+def get_students_by_clubs(students: StudentsDict, target_clubs: set[str]) -> list[str]:
     """
     Повертає список учнів, які відвідують ВСІ вказані гуртки.
 
@@ -146,10 +143,8 @@ def get_students_by_clubs(students: StudentsDict, target_clubs: Set[str]) -> Lis
 
 
 def get_common_clubs_for_two_students(
-        students: StudentsDict,
-        student1: str,
-        student2: str
-    ) -> Set[str]:
+    students: StudentsDict, student1: str, student2: str
+) -> set[str]:
     """
     Повертає гуртки, які два учні відвідують разом.
 
@@ -172,7 +167,7 @@ def get_common_clubs_for_two_students(
 
     common_clubs = student1_clubs & student2_clubs
 
-    return  common_clubs
+    return common_clubs
 
 
 def print_all_info(students: StudentsDict) -> None:
@@ -193,7 +188,7 @@ def print_all_info(students: StudentsDict) -> None:
         print()
 
 
-def get_all_clubs(students: StudentsDict) -> Set[str]:
+def get_all_clubs(students: StudentsDict) -> set[str]:
     """
     Повертає множину всіх згаданих гуртків.
 
@@ -227,7 +222,7 @@ def main():
     students = {
         "Степан": {"Плавання", "Іспанська"},
         "Марія": {"Python", "Танці"},
-        "Софія": {"Плавання", "Танці", "Малювання"}
+        "Софія": {"Плавання", "Танці", "Малювання"},
     }
 
     while True:  # 2. Нескінченний цикл
@@ -249,7 +244,9 @@ def main():
             remove_club_for_student(students, name, club)
 
         elif choice == "4":
-            clubs = input("Введіть гуртки через кому (наприклад: 'Шахи, Плавання'): ").split(', ')
+            clubs = input(
+                "Введіть гуртки через кому (наприклад: 'Шахи, Плавання'): "
+            ).split(", ")
             clubs = set(clubs)
             result = get_students_by_clubs(students, clubs)
 
@@ -275,7 +272,9 @@ def main():
                 for c in sorted(common):
                     print(f" • {c}")
             else:
-                print("ℹ️ Спільних гуртків не знайдено або одного з учнів немає у списку.")
+                print(
+                    "ℹ️ Спільних гуртків не знайдено або одного з учнів немає у списку."
+                )
 
         elif choice == "6":
             print_all_info(students)
@@ -299,7 +298,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
 
 # students = {
@@ -328,5 +326,3 @@ if __name__ == "__main__":
 #     all_clubs |= club
 #
 # print(all_clubs)
-
-

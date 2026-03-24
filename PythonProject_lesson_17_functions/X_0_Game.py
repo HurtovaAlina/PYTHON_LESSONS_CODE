@@ -23,7 +23,7 @@
 # main -- головна функція, організовує вся роботуґзапускає програму
 
 
-from typing import Literal, Optional, get_args
+from typing import Literal
 
 # Тип для символів на сітці
 CROSS = "X"
@@ -51,7 +51,6 @@ def create_grid(size: int = 3) -> list[list[Cell]]:
     return grid
 
 
-
 def print_grid(grid: list[list[Cell]]) -> None:
     """
     Виводить поточний стан сітки на екран у зручному для читання вигляді.
@@ -64,15 +63,12 @@ def print_grid(grid: list[list[Cell]]) -> None:
     # ---+---+---
     #  O |   | X
     for row in grid:
-        print(" "+" | ".join(row)+"  ")
-        print("---+"*(len(row)-1), "---", sep="")
+        print(" " + " | ".join(row) + "  ")
+        print("---+" * (len(row) - 1), "---", sep="")
 
 
 def add_symbol_to_grid(
-    grid: list[list[Cell]],
-    row: int,
-    col: int,
-    symbol: Symbol
+    grid: list[list[Cell]], row: int, col: int, symbol: Symbol
 ) -> bool:
     """
     Додає новий символ на сітку за вказаними координатами.
@@ -87,7 +83,7 @@ def add_symbol_to_grid(
 
     l = len(grid)
     # 1. Перевірити, що row і col в межах розміру сітки.
-    if row <0 or row >=l or col < 0 or col >= l:
+    if row < 0 or row >= l or col < 0 or col >= l:
         print("Error, you are outside")
         return False
     # 2. Перевірити, що в цій клітинці зараз " " (порожньо).
@@ -96,7 +92,7 @@ def add_symbol_to_grid(
         grid[row][col] = symbol
         return True
     else:
-    # 4. Інакше повернути False.
+        # 4. Інакше повернути False.
         print("This place is not empty")
         return False
 
@@ -118,15 +114,14 @@ def ask_user_move(player_name: str, grid: list[list[Cell]]) -> tuple[int, int]:
     l = len(grid)
     # 1. В циклі питати в користувача рядок та стовпчик (через input()).
     while True:
-
         row = int(input(f" {player_name} Enter row "))
         col = int(input(f" {player_name} Enter column "))
 
-    # 2. Якщо все добре — повернути (row, col).
+        # 2. Якщо все добре — повернути (row, col).
         return (row, col)
 
 
-def check_winner(grid: list[list[Cell]]) -> Optional[Symbol]:
+def check_winner(grid: list[list[Cell]]) -> Symbol | None:
     """
     Перевіряє, чи є переможець на поточній сітці.
 
@@ -150,26 +145,25 @@ def check_winner(grid: list[list[Cell]]) -> Optional[Symbol]:
         if first_el != EMPTY and all(cell == first_el for cell in row):
             return first_el  # Якщо знайдено три однакові символи ("X" або "O") — повернути X або О.
 
-
     # --- Стовпці ---
     # 2. Перевірити кожний стовпець.
     for col in range(l):
         first_el = grid[0][col]
         if first_el != EMPTY and all(grid[row][col] == first_el for row in range(l)):
-            return first_el # Якщо знайдено три однакові символи ("X" або "O") — повернути X або О.
+            return first_el  # Якщо знайдено три однакові символи ("X" або "O") — повернути X або О.
 
     # 3. Перевірити дві діагоналі.
     # --- Головна діагональ ---
     first_el = grid[0][0]
     if first_el != EMPTY and all(grid[i][i] == first_el for i in range(l)):
-        return first_el # Якщо знайдено три однакові символи ("X" або "O") — повернути X або О.
+        return first_el  # Якщо знайдено три однакові символи ("X" або "O") — повернути X або О.
 
     # --- Побічна діагональ ---
     first_el = grid[0][l - 1]
     if first_el != EMPTY and all(grid[i][l - 1 - i] == first_el for i in range(l)):
-        return first_el # Якщо знайдено три однакові символи ("X" або "O") — повернути X або О.
+        return first_el  # Якщо знайдено три однакові символи ("X" або "O") — повернути X або О.
 
-    return None # Якщо переможця немає — повернути None.
+    return None  # Якщо переможця немає — повернути None.
 
 
 def has_empty_cells(grid: list[list[Cell]]) -> bool:
@@ -200,10 +194,12 @@ def is_game_over(grid: list[list[Cell]]) -> bool:
     # 1. Використати check_winner().
     if check_winner(grid):
         print("Winner is ", check_winner(grid), " Congrats!!! ", current_player)
-        return True     # 3. Повернути True, якщо є переможець або немає порожніх клітинок.
-    elif not has_empty_cells(grid) and check_winner(grid) is None:     # 2. Використати has_empty_cells().
+        return True  # 3. Повернути True, якщо є переможець або немає порожніх клітинок.
+    elif (
+        not has_empty_cells(grid) and check_winner(grid) is None
+    ):  # 2. Використати has_empty_cells().
         print("Draw in the game")
-        return True     # 3. Повернути True, якщо є переможець або немає порожніх клітинок.
+        return True  # 3. Повернути True, якщо є переможець або немає порожніх клітинок.
     else:
         return False
 
@@ -236,13 +232,14 @@ def main() -> None:
        - переключити гравця.
     """
 
+
 player_x = input("Enter name of the 1 player ")
 player_o = input("Enter name of the 2 player ")
 
-#1. Створити порожню сітку.
-grid= create_grid(3)
+# 1. Створити порожню сітку.
+grid = create_grid(3)
 print_grid(grid)
-#2. Встановити стартового гравця (наприклад, "X").
+# 2. Встановити стартового гравця (наприклад, "X").
 print("Enter symbol to start game  X or O ")
 symbol = input("Enter symbol to start ")
 
@@ -256,28 +253,20 @@ else:
     current_player = player_o
 # 3. У циклі:
 while True:
-#        - запитати хід у поточного гравця;
+    #        - запитати хід у поточного гравця;
     row, col = ask_user_move(current_player, grid)
-#        - додати символ до сітки;
-    add_symbol_to_grid(grid,row, col, symbol)
-#        - вивести сітку;
+    #        - додати символ до сітки;
+    add_symbol_to_grid(grid, row, col, symbol)
+    #        - вивести сітку;
     print_grid(grid)
-#        - перевірити, чи є переможець;
-#        - при завершенні гри вивести результат (хто виграв або нічия);
+    #        - перевірити, чи є переможець;
+    #        - при завершенні гри вивести результат (хто виграв або нічия);
     if not is_game_over(grid):
-        #- переключити гравця.
+        # - переключити гравця.
         symbol = switch_player(symbol)
         if symbol == CROSS:
-            current_player=player_x
+            current_player = player_x
         else:
             current_player = player_o
     else:
         break
-
-
-
-
-
-
-
-

@@ -5,12 +5,12 @@
 products = ["banana", "apple", "peach", "milk", "bread"]
 
 try:
-    index = int(input(f"Enter index "))
+    index = int(input("Enter index "))
     print(products[index])
 
 except IndexError:
     print("Index doesnt exist")
-    print(f"Index must be to ")
+    print("Index must be to ")
 
 except ValueError:
     print(f"Not a digit {len(products)-1} ")
@@ -23,16 +23,18 @@ except ValueError:
 # Написати код try … except який використовує дану
 # функцію.
 
-def ask_age():
-    age  = int(input("Enter your age "))
 
-    if age < 0 :
+def ask_age():
+    age = int(input("Enter your age "))
+
+    if age < 0:
         raise ValueError("Age < 0 is not allowed")
 
     if age > 130:
         raise ValueError("Age > 130 is not allowed")
 
     return age
+
 
 try:
     age = ask_age()
@@ -51,6 +53,7 @@ except ValueError as error:
 # функцію.
 # Практичне завдання
 
+
 def ask_number():
     number = input("Enter number ")
     print(number)
@@ -66,13 +69,13 @@ def ask_number():
 
     return number
 
+
 try:
     number = ask_number()
     print(f"Your phone number is {number}")
 
 except ValueError as error:
     print(f"Error {error}")
-
 
 
 # Завдання 4
@@ -91,7 +94,7 @@ categories = {
     "Одяг": {"футболка", "штани", "куртка"},
     "Взуття": {"кросівки", "черевики"},
     "Спорт": {"футболка", "кросівки", "шорти"},
-    "Знижки": {"футболка", "черевики"}
+    "Знижки": {"футболка", "черевики"},
 }
 
 # category_1 = input("Enter category 1 ")
@@ -111,7 +114,6 @@ except KeyError as e:
     print(f"Error {e}")
 
 
-
 # Завдання 5
 # Організуйте базу даних «Співробітники». Усі дані мають
 # зберігатись у словнику де ключ – ім’я людини, значення –
@@ -125,15 +127,13 @@ except KeyError as e:
 # винятки з описом помилки
 
 
-employees = {
-    "Андрій": 15000,
-    "Марина": 18000,
-    "Ігор": 22000
-}
+employees = {"Андрій": 15000, "Марина": 18000, "Ігор": 22000}
+
 
 def output_employees(employees):
     for employee, salary in employees.items():
         print(f"Employee name: {employee}, salary: {employees[employee]}")
+
 
 def add_employee(employees):
     employee_name = input("Enter employee name ")
@@ -152,8 +152,8 @@ def add_employee(employees):
     employees[employee_name] = employee_salary
     return employees
 
-def remove_employee(employees):
 
+def remove_employee(employees):
     employee_name = input("Enter employee name to remove ")
 
     if employee_name not in employees:
@@ -162,8 +162,8 @@ def remove_employee(employees):
     employees.pop(employee_name)
     return employees
 
-def show_salary(employees):
 
+def show_salary(employees):
     employee_name = input("Enter employee name to show salary ")
 
     if employee_name not in employees:
@@ -171,8 +171,8 @@ def show_salary(employees):
 
     print(f" Employee name: {employee_name}, Salary: {employees[employee_name]}")
 
-def update_employee(employees):
 
+def update_employee(employees):
     employee_name = input("Enter employee name to update salary ")
 
     if employee_name not in employees:
@@ -211,5 +211,3 @@ except ValueError as error:
 
 except KeyError as error:
     print(f"Key Error: {error}")
-
-

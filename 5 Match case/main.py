@@ -225,7 +225,7 @@
 # else:
 #     print(f"Your order amount with applied discounts: {round(order_amount, 2)}$")
 
-#Завдання 6*.
+# Завдання 6*.
 # Умова
 # Користувач вводить ціле число n від 1 до 10000(сума для зняття).Програма має “видати” цю суму
 # і показати її: цифрами словами(у дужках)
@@ -245,7 +245,7 @@ n3_amount = ""
 n4_amount = ""
 n5_amount = ""
 
-#print(f"{n1}, \n{n2}, \n{n3}, \n{n4}, \n{n5}")
+# print(f"{n1}, \n{n2}, \n{n3}, \n{n4}, \n{n5}")
 if amount <= 10000 and isinstance(amount, int):
     if n1 == 1:
         n1_amount = "десять тисяч гривень"
@@ -312,7 +312,7 @@ if amount <= 10000 and isinstance(amount, int):
                     n4_amount = "вісімнадцять"
                 case 9:
                     n4_amount = "девʼятнадцять"
-        if 1 < n4 <=9:
+        if 1 < n4 <= 9:
             match n4:
                 case 2:
                     n4_amount = "двадцять"
@@ -350,6 +350,8 @@ if amount <= 10000 and isinstance(amount, int):
                     n5_amount = "вісім"
                 case 9:
                     n5_amount = "девʼять"
-    print(f"{amount} : ({n1_amount} {n2_amount} {n3_amount} {n4_amount} {n5_amount} UAH)")
+    print(
+        f"{amount} : ({n1_amount} {n2_amount} {n3_amount} {n4_amount} {n5_amount} UAH)"
+    )
 else:
     print("Wrong amount")

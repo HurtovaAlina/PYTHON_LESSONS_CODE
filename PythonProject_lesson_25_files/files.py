@@ -41,7 +41,6 @@
 # print(lines)
 
 
-
 # записати дані у файл
 # mode файла -- для чого відкривати файл
 # w -- для запису
@@ -142,7 +141,7 @@
 # все те саме через read()
 
 filename = "print_file.txt"
-with open(filename, "r") as file:
+with open(filename) as file:
     # читаємо як суцільний текст
     text = file.read()
 
@@ -159,7 +158,3 @@ print(count_lines)
 # кількість букв h
 count_h = text.lower().count("h")
 print(count_h)
-
-
-
-

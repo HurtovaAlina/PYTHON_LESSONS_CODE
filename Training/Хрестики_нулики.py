@@ -1,4 +1,4 @@
-from typing import Literal, Optional
+from typing import Literal
 
 # Тип для символів на сітці
 CROSS = "X"
@@ -39,10 +39,7 @@ def print_grid(grid: list[list[Cell]]) -> None:
 
 
 def add_symbol_to_grid(
-    grid: list[list[Cell]],
-    row: int,
-    col: int,
-    symbol: Symbol
+    grid: list[list[Cell]], row: int, col: int, symbol: Symbol
 ) -> bool:
     """
     Додає новий символ на сітку за вказаними координатами.
@@ -91,7 +88,7 @@ def ask_user_move(player_name: str, grid: list[list[Cell]]) -> tuple[int, int]:
         return row, col
 
 
-def check_winner(grid: list[list[Cell]]) -> Optional[Symbol]:
+def check_winner(grid: list[list[Cell]]) -> Symbol | None:
     """
     Перевіряє, чи є переможець на поточній сітці.
 

@@ -1,4 +1,4 @@
-from datetime import time, datetime, timedelta
+from datetime import datetime, time, timedelta
 
 # Завдання 1:
 # Користувач вводить:
@@ -17,20 +17,20 @@ h = int(input("Enter hours of departure 0-23: "))
 m = int(input("Enter minutes of departure 0-59: "))
 d = int(input("Enter duration of way, minutes: "))
 
-#1 variant
+# 1 variant
 
 time_of_departure = time(h, m)
 print("Time of departure: ", time_of_departure)
 day_of_departure = datetime.combine(datetime.today(), time_of_departure)
 print("Day of departure: ", day_of_departure)
-day_of_arrival = day_of_departure + timedelta(minutes = d)
+day_of_arrival = day_of_departure + timedelta(minutes=d)
 print("Day of arrival", day_of_arrival)
 print("Time of arrival: ", day_of_arrival.strftime("%H:%M"))
 time_in_way = day_of_arrival - day_of_departure
 print("Time in way", time_in_way)
 print("Days in way: ", time_in_way.days)
 
-#2 variant
+# 2 variant
 # start, min
 # start_m = h * 60 + m
 # # all minutes in way
@@ -140,4 +140,3 @@ print("Days in way: ", time_in_way.days)
 # print("Total banknotes : ", total_banknotes)
 # print("Total coins : ", total_coins)
 #
-

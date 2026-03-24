@@ -6,7 +6,7 @@ count = 0
 
 for i in text:
     if i == "." or i == "?" or i == "!" or i == ";":
-        count+=1
+        count += 1
 print("Number of sentences = ", count)
 
 # Завдання 2
@@ -39,14 +39,14 @@ index_1 = 0
 index_2 = 0
 
 for i in range(len(text)):
-    if text[i] == char_1 and count ==0: #finds first char
+    if text[i] == char_1 and count == 0:  # finds first char
         index_1 = i
-        count +=1 # first char was found
-    if text[i] == char_2 and i > index_1 and count > 0: #needed if char_1 == char_2
+        count += 1  # first char was found
+    if text[i] == char_2 and i > index_1 and count > 0:  # needed if char_1 == char_2
         index_2 = i
         break
 
-slice_to_remove = text[index_1:index_2+1]
-print("slice to remove: ",slice_to_remove)
-result = text[:index_1] + text[index_2 + 1:]
+slice_to_remove = text[index_1 : index_2 + 1]
+print("slice to remove: ", slice_to_remove)
+result = text[:index_1] + text[index_2 + 1 :]
 print("Result: ", result)

@@ -32,20 +32,21 @@
 
 
 # кортежі(tuple)
-text = 'hello'   # послідовність символів
+text = "hello"  # послідовність символів
 nums = [1, 2, 3, 4]  # послідовність будь-чого
 
 nums = (1, 2, 3, 4)  # кортеж чисел
-words = ("apple", "banana") # кортеж слів
+words = ("apple", "banana")  # кортеж слів
 
 # списки -- змінний тип даних
 # кортеж -- незмінний тип даних
+
 
 def get_statistic():
     count = 5
     average = 10.5
 
-    return count, average   # тут повертається кортеж з двома елементами
+    return count, average  # тут повертається кортеж з двома елементами
 
 
 my_count, my_average = get_statistic()
@@ -104,11 +105,7 @@ quantities = [1, 1, 0.5]  # кількості товарів
 #     print(item, price, quantity)
 
 
-data = [
-    ("Ukraine", "Kyiv", 32),
-    ("France", "Paris", 52),
-    ("Spain", "Madrid", 40)
-]
+data = [("Ukraine", "Kyiv", 32), ("France", "Paris", 52), ("Spain", "Madrid", 40)]
 
 # # порахувати загальне насерення
 #
@@ -120,7 +117,7 @@ data = [
 
 # індекси
 
-words = ('apple', 'banana', 'pear', 'cherry', 'orange')
+words = ("apple", "banana", "pear", "cherry", "orange")
 
 # останій
 print(words[-1])
@@ -133,9 +130,8 @@ print(words[0:3])
 print(words[:3])
 
 # останні 3
-#print(words[:-3])
+# print(words[:-3])
 print(words[-3:])
 
 # задом наперед
 print(words[::-1])
-

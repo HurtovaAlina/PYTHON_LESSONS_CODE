@@ -33,7 +33,6 @@
 # print("Multiplied ", mult)
 
 
-
 # Вимоги:
 #
 # Залишити тільки додатні числа (> 0)
@@ -121,4 +120,3 @@
 # print("Odds ", odd)
 # print("Mult ", multiple)
 # print("More than 20", more)
-

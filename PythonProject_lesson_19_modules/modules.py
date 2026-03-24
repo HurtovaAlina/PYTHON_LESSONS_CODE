@@ -2,9 +2,6 @@
 # import [module name]
 
 
-import random # random numbers
-import datetime #date and time
-
 # для встановлення нової бібліотеки  in Terminal
 # pip install [name]
 
@@ -22,7 +19,8 @@ import datetime #date and time
 # print(res1)
 
 # імпорт власного модуля - знаходить в venv або папці де зараз працюємо
-import geometry # формально запускається весь код всередині модуля geometry
+import geometry  # формально запускається весь код всередині модуля geometry
+
 print("Lesson module")
 area = geometry.get_circle_area(10)
 print(area)

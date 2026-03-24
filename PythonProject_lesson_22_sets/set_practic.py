@@ -5,7 +5,6 @@
 
 import random
 
-
 numbers = input("Enter numbers ").split(",")
 numbers = set(map(int, numbers))
 print("User's numbers: ", numbers)
@@ -42,10 +41,12 @@ print("Union: ", all_numbers)
 # можуть повторюватись) та назву події. Потрібно вивести
 # запрошення для кожного гостя і лише один раз.
 
+
 def welcome_gests(guests, ivent):
     guests = set(guests)
     for guest in guests:
         print(f"Dear Guest {guest}, welcome to the {ivent}")
+
 
 geusts = [
     "Олена Іваненко",
@@ -54,7 +55,7 @@ geusts = [
     "Марія Коваль",
     "Ігор Сидоренко",
     "Марія Коваль",
-    "Анна Шевченко"
+    "Анна Шевченко",
 ]
 ivent = "Dance competition"
 welcome_gests(geusts, ivent)
@@ -65,12 +66,14 @@ welcome_gests(geusts, ivent)
 # товарів для покупок двох знайомих людей. Виведіть наступне
 # повідомлення:
 
+
 #  Товари, які можна купити разом
 def goods_for_both(person_1, person_2):
     person_1 = set(person_1)
     person_2 = set(person_2)
     both = person_1.intersection(person_2)
-    print("Goods to buy both persons: ",both)
+    print("Goods to buy both persons: ", both)
+
 
 #  Товари, які потрібні лише першій людині
 #  Товари, які потрібні лише другій людині
@@ -79,6 +82,7 @@ def goods_for_one_person(person_1, person_2):
     person_2 = set(person_2)
     for_one = person_1.difference(person_2)
     return for_one
+
 
 person1 = ["хліб", "молоко", "яйця", "сир", "яблука"]
 person2 = ["молоко", "банани", "сир", "курка", "рис"]
@@ -93,7 +97,7 @@ print(f"Goods for second person: {goods_for_one_person(person2, person1)}")
 # зареєстровані, ті хто оплатив участь і ті хто підтвердив свою
 # присутність
 
-#Список зареєстрованих учасників
+# Список зареєстрованих учасників
 registered = [
     "Іван Петренко",
     "Олена Коваль",
@@ -101,42 +105,35 @@ registered = [
     "Марія Бондар",
     "Наталія Мельник",
     "Дмитро Савченко",
-    "Ірина Ткаченко"
+    "Ірина Ткаченко",
 ]
 
 # Список тих, хто оплатив участь
-paid = [
-    "Іван Петренко",
-    "Олена Коваль",
-    "Марія Бондар",
-    "Дмитро Савченко"
-]
+paid = ["Іван Петренко", "Олена Коваль", "Марія Бондар", "Дмитро Савченко"]
 
 # Список тих, хто підтвердив свою присутність
-confirmed = [
-    "Іван Петренко",
-    "Марія Бондар",
-    "Наталія Мельник",
-    "Марія Іванова"
-]
+confirmed = ["Іван Петренко", "Марія Бондар", "Наталія Мельник", "Марія Іванова"]
+
+
 # Напишіть функцію, яка отримує ці 3 списки та виводить
 # наступну інформацію:
 def information_about_participants(registered, paid, confirmed):
     registered = set(registered)
     paid = set(paid)
     confirmed = set(confirmed)
-#  Імена тих, хто зареєструвався, але не оплатив участь
+    #  Імена тих, хто зареєструвався, але не оплатив участь
     print(f"Registered but not paid: {registered.difference(paid)}")
-#  Імена тих, хто підтвердив присутність, але не
-# зареєстрований
+    #  Імена тих, хто підтвердив присутність, але не
+    # зареєстрований
     print(f"Confirmed but not registered: {confirmed.difference(registered)}")
-#  Імена тих, хто оплатив участь, але не підтвердив
-# присутність
+    #  Імена тих, хто оплатив участь, але не підтвердив
+    # присутність
     print(f"Paid but not confirmed: {paid.difference(confirmed)}")
-#  Імена тих, хто зареєструвався і оплатив участь
+    #  Імена тих, хто зареєструвався і оплатив участь
     print(f"Registered and paid: {registered.intersection(paid)}")
-#  Імена тих хто пройшов усі 3 етапи
+    #  Імена тих хто пройшов усі 3 етапи
     print(f"Confirmed Paid Registered: {confirmed.intersection(registered, paid)}")
+
 
 information_about_participants(registered, paid, confirmed)
 
@@ -167,8 +164,8 @@ all_workers = [
     "Наталія Петренко",
     "Світлана Савченко",
     "Ігор Романюк",
-    "Дмитро Забутий"
-    ]
+    "Дмитро Забутий",
+]
 
 
 # Група розробників (IT-відділ)
@@ -177,24 +174,15 @@ developers = [
     "Марина Кравчук",
     "Артем Бойко",
     "Ірина Сидоренко",
-    "Владислав Мельник"
+    "Владислав Мельник",
 ]
 
 # Група маркетологів
-marketing = [
-    "Олена Ткаченко",
-    "Дмитро Шевчук",
-    "Марія Коваль",
-    "Андрій Бондар"
-]
+marketing = ["Олена Ткаченко", "Дмитро Шевчук", "Марія Коваль", "Андрій Бондар"]
 
 # Група бухгалтерії
-accounting = [
-    "Наталія Петренко",
-    "Олена Ткаченко",
-    "Світлана Савченко",
-    "Ігор Романюк"
-]
+accounting = ["Наталія Петренко", "Олена Ткаченко", "Світлана Савченко", "Ігор Романюк"]
+
 
 def check_groups(all_workers, developers, marketing, accounting):
     all_workers = set(all_workers)
@@ -207,11 +195,12 @@ def check_groups(all_workers, developers, marketing, accounting):
     duplicated_workers = (
         developers.intersection(marketing),
         developers.intersection(accounting),
-        marketing.intersection(accounting)
+        marketing.intersection(accounting),
     )
     if duplicated_workers:
         print("There are duplicated workers:", duplicated_workers)
     else:
         print("There are no duplicates")
+
 
 check_groups(all_workers, developers, marketing, accounting)

@@ -1,6 +1,6 @@
 # множини
-nums = ['apple', 'banana', 'kiwi']
-nums.append('pear')
+nums = ["apple", "banana", "kiwi"]
+nums.append("pear")
 
 
 # множини
@@ -106,7 +106,6 @@ nums.append('pear')
 # print(fruits)
 
 
-
 # операції з множинами
 
 workers = ["Анна", "Олег", "Ігор", "Олег", "Анна", "Марія", "Сергій", "Олег"]
@@ -151,5 +150,3 @@ print(both)
 
 both = special_workers & workers
 print(both)
-
-

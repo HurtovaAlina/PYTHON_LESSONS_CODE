@@ -20,11 +20,11 @@
 #     pass
 
 age = 5
-if 0 < age <=14:
+if 0 < age <= 14:
     print("Child")
 elif 14 < age < 18:
     print("Teenager")
-elif 18<= age < 65:
+elif 18 <= age < 65:
     print("Adult")
 elif 65 <= age < 150:
     print("Very Old")

@@ -1,19 +1,18 @@
 # генератор списків
-import random
 
 # ls = []
 # ls.append("Den")
 # print(ls)
 
 # list of random elements
-#1.
+# 1.
 # ls = []
 # for _ in range(10):
 #     ls.append(random.randint(1, 100))
 #
 # print(ls)
 # print(len(ls))
-#2.
+# 2.
 # [вираз for елемент in ітератор <if умова>]
 # ls = [random.randint(1, 100) for _ in range(10)]
 # print(ls)
@@ -38,7 +37,7 @@ import random
 # ls = [n if n >=0 else 0 for n in ls if n!= 5]
 # print(ls)
 
-#[значення, що повернеться, якщо умова вірна, УМОВА, значення що повернеться, якщо умова не вірна ІТЕРАТОР ПО СПИСКУ
+# [значення, що повернеться, якщо умова вірна, УМОВА, значення що повернеться, якщо умова не вірна ІТЕРАТОР ПО СПИСКУ
 # Умова фільтрації списку]
 #
 # list1 = [x*y for x in range(1,4) for y in range(1,4)]
@@ -59,7 +58,7 @@ import random
 # print(ls)
 
 
-#methods
+# methods
 # ls = [1, 2, 3, 4, 5, 6, 7, 8, 9, -10]
 # print(len(ls)) # length of listObj
 # print(max(ls)) # max element of listObj
@@ -96,7 +95,7 @@ import random
 # # diapason for searching
 # ls.reverse() # reversed list doesn't create new list
 
-#COPY
+# COPY
 # ls1 = [3,4,5]
 # # ls2 = ls1 ->  only one list exists, ls2, ls1 - pointers to this list
 # ls2 = ls1.copy()
@@ -118,7 +117,7 @@ import random
 #         # count +=1 # counts elements
 #         i +=1 # saves current index of the element / if returns -1 element not found
 
-#MATRIX
+# MATRIX
 # each row  is inner list
 # 1. [1,2,4,5,6]
 # 2. [2,3,4,6,6]
@@ -145,7 +144,18 @@ import random
 
 # Task
 
-ls = [9, 2, 10, 1, -10, -4, 7, 0, -4, -7 -8] #[random.randint(-10,10) for _ in range(10)]
+ls = [
+    9,
+    2,
+    10,
+    1,
+    -10,
+    -4,
+    7,
+    0,
+    -4,
+    -7 - 8,
+]  # [random.randint(-10,10) for _ in range(10)]
 print(ls)
 
 # sum_neg = 0
@@ -213,7 +223,3 @@ print(ls)
 # for i in range(ind_1, ind_2+1):
 #     sum_between += ls[i]
 # print(sum_between)
-
-
-
-

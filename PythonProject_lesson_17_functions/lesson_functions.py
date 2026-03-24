@@ -1,5 +1,6 @@
 # документація
 
+
 # функція яка формує привітання для користувача
 def get_greeting(name: str, age: int) -> str | None:
     """
@@ -15,14 +16,14 @@ def get_greeting(name: str, age: int) -> str | None:
     :param name: str ім'я користувача
     :param age: int вік користувача
     :return: str фраза з привітанням
-    """ # docstring
+    """  # docstring
 
     # перевірки
     if age <= 0:
         print("[WARNING] Вік має бути дадатнім")
-        return None # кінець функції
+        return None  # кінець функції
 
-    if name == '':
+    if name == "":
         print("[WARNING] Ім'я не може бути пустим")
         return None
 
@@ -52,8 +53,8 @@ def greet_users(users: list):
     """
 
     for user in users:
-        name = user[0] # name
-        age = user[1] # age
+        name = user[0]  # name
+        age = user[1]  # age
 
         greeting = get_greeting(name, age)
 
@@ -71,4 +72,3 @@ def greet_users(users: list):
 # ]
 #
 # greet_users(users)
-

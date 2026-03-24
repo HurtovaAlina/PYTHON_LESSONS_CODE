@@ -1,7 +1,3 @@
-
-
-
-
 # Самостійна робота
 
 # Рівень 1
@@ -56,7 +52,6 @@
 #     return sum_elements
 #
 # print(find_sum(list_of_numbers))
-
 
 
 # Завдання 4
@@ -151,4 +146,3 @@
 #
 # print("Fibonacci numbers in the entered list: ", fibonacci_numbers(list_of_numbers,
 #                                                                    fibonacci_list= create_fibonacci(n)))
-

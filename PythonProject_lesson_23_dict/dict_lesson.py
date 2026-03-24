@@ -100,10 +100,7 @@
 # print(data)
 
 
-data = {
-    'хліб': 30,
-    'яблуко': 65
-}
+data = {"хліб": 30, "яблуко": 65}
 
 # # отримати занчення за ключем
 # print(data['хліб'])
@@ -163,8 +160,6 @@ data = {
 #     print("no")
 
 
-
-
 # напишуть функцію яка створює словник з інформацією про працівника
 # (ім'я, зарплата, досвід)
 # напишуть функцію яка створює список з інформацією про співробітників
@@ -194,8 +189,8 @@ def create_workers(worker_num=3):
 def increase_salary(workers, bonus, min_exp=2):
     for worker in workers:
         # перевірити чи достатньо досвіду
-        if worker['exp'] > min_exp:
-            worker['salary'] += bonus
+        if worker["exp"] > min_exp:
+            worker["salary"] += bonus
 
 
 workers = create_workers(worker_num=3)
@@ -203,8 +198,6 @@ increase_salary(workers, bonus=250)
 
 # для красивого print
 import json
+
 print(workers)
 print(json.dumps(workers, indent=2))
-
-
-

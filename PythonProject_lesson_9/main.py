@@ -40,7 +40,7 @@
 # #id - unique id in memory
 # print(id(line), id(line1))
 
-#reversed line
+# reversed line
 # print(line[::-1])
 # print(line[-2:-8:-1])
 # print(line[-2:5:-1])
@@ -53,13 +53,13 @@
 # print(line2)
 
 # Methods
-#1 registr:
+# 1 registr:
 # print("hello".capitalize()) # from capital letter
 # print("hello".title())
 # print("hello".lower()) # lower letters
 # print("hello".upper()) # caps letters
 # print("Straße".casefold()) # for other languages to decrease register
-#trim
+# trim
 # print("    hello World    ".strip( )) # removes spaces in start or end of the line
 # print("    hello World  !  ".strip("!")) # removes symbols
 # print("    hello World  #@! ".strip("#@!"))
@@ -89,15 +89,15 @@
 
 # print("I\nlike\nJava".splitlines())
 
-#join
+# join
 # print(" ".join(['I', 'like', 'Java'])) # send list to string
-#just
+# just
 # print("hi".center(30, '-'))
 # print("hi".ljust(30, '-'))
 # print("hi".rjust(30, '-'))
 # print("7".zfill(3))
 
-#format
+# format
 # name = "Alex"
 # age =10
 # print(f"{name} hi!")
@@ -108,7 +108,6 @@
 # price = 34
 # print(" Price = {0:.2f}".format(price))
 
-#bool  prefix is
+# bool  prefix is
 # print("123abc".isalnum()) #alph + num
 # print("123abc  ".isalnum())
-

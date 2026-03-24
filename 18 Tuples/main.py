@@ -12,11 +12,11 @@ cities = (
     "Lutsk",
     "Ternopil",
     "Kharkiv",
-    "Lviv"
+    "Lviv",
 )
 popular_cities = []
 for city in cities:
-    if cities.count(city)>1:
+    if cities.count(city) > 1:
         popular_cities.append(city)
 
 print(set(popular_cities))
@@ -28,7 +28,7 @@ print(set(popular_cities))
 
 numbers_1 = tuple(random.randint(1, 100) for _ in range(12))
 print(numbers_1)
-numbers_2  = tuple(random.randint(1, 100) for _ in range(12))
+numbers_2 = tuple(random.randint(1, 100) for _ in range(12))
 print(numbers_2)
 
 for number in numbers_1:
@@ -40,6 +40,7 @@ for number in numbers_1:
 # список з елементами, які є в обох кортежах і мають однакові
 # індекси. Підказка: використайте zip()
 
+
 def same_elements(elements_1, elements_2):
     """
     :param elements_1: tuple of elements
@@ -48,27 +49,13 @@ def same_elements(elements_1, elements_2):
     """
 
     list_of_same_elements = []
-    for element_1, element_2 in zip(elements_1, elements_2):
+    for element_1, element_2 in zip(elements_1, elements_2, strict=False):
         if element_1 == element_2:
             list_of_same_elements.append(element_1)
     return list_of_same_elements
 
 
-elements_1 = (
-    "Kyiv",
-    "Dnipro",
-    "Lviv",
-    "Lutsk",
-    "Ternopil",
-    "Kharkiv"
-)
+elements_1 = ("Kyiv", "Dnipro", "Lviv", "Lutsk", "Ternopil", "Kharkiv")
 
-elements_2 = (
-    "Kyiv",
-    "Lviv",
-    "Dnipro",
-    "Lutsk",
-    "Ternopil",
-    "Kyiv"
-)
+elements_2 = ("Kyiv", "Lviv", "Dnipro", "Lutsk", "Ternopil", "Kyiv")
 print(same_elements(elements_1, elements_2))

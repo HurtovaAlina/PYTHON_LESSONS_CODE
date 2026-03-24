@@ -5,7 +5,7 @@
 # Завдання:
 # додати новий контакт
 # знайти номер за ім’ям
-from itertools import count
+
 #
 # phone_book = {
 #     "Alina": "+380661844701",
@@ -217,4 +217,3 @@ from itertools import count
 #
 # print(items_dictionary)
 # print(sum(items_dictionary.values()))
-

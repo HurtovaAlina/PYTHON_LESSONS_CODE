@@ -14,9 +14,11 @@
 items = ["  Milk  ", "bread", "BREAD", "", "  eggs", "Eggs ", "   ", "cheese"]
 items_without_duplicates = []
 
+
 def remove_empty(i):
-    if i !="":
+    if i != "":
         return i
+
 
 def remove_duplicates(items):
     res = []
@@ -25,10 +27,11 @@ def remove_duplicates(items):
             res.append(i)
     return res
 
+
 without_spaces = list(map(lambda i: i.strip(), items))
 # print(without_spaces)
 
-without_empty = list(filter(remove_empty,without_spaces))
+without_empty = list(filter(remove_empty, without_spaces))
 # print(without_empty)
 
 lower_cases = list(map(lambda i: i.lower(), without_empty))
@@ -69,7 +72,8 @@ students = [
     {"name": "Максим", "age": 20, "avg": 60, "has_debt": False},
 ]
 
-def make_student_filter(min_avg, max_age, no_debts_only, name_startswith = None):
+
+def make_student_filter(min_avg, max_age, no_debts_only, name_startswith=None):
     def predicate(student):
         if student["avg"] < min_avg:
             return False
@@ -81,13 +85,15 @@ def make_student_filter(min_avg, max_age, no_debts_only, name_startswith = None)
             if not student["name"].startswith(name_startswith):
                 return False
         return True
+
     return predicate
+
 
 predicate = make_student_filter(80, 18, True)
 filtered_students = list(filter(predicate, students))
 print(filtered_students)
 
-students_names = list(map(lambda s: s['name'], filtered_students))
+students_names = list(map(lambda s: s["name"], filtered_students))
 print(students_names)
 
 
@@ -113,18 +119,23 @@ print(students_names)
 
 nums = [1, -2, 3, 0, 4, -5, 10, 11, 12]
 
+
 def only_positive(i):
-    if  i>0:
+    if i > 0:
         return i
+
 
 def only_even(i):
-    if i%2==0:
+    if i % 2 == 0:
         return i
 
+
 def square(i):
-    return i*i
+    return i * i
+
 
 steps = [("filter", only_positive), ("filter", only_even), ("map", square)]
+
 
 def apply_pipeline(data, steps):
     result = data
@@ -138,11 +149,8 @@ def apply_pipeline(data, steps):
             new_result.append(result)
     return new_result
 
-positive, evens, squares = apply_pipeline(nums,steps)
+
+positive, evens, squares = apply_pipeline(nums, steps)
 print("Positive ", positive)
 print("Evens ", evens)
 print("Square ", squares)
-
-
-
-

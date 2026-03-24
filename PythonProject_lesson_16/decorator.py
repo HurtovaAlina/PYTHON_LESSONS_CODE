@@ -62,7 +62,7 @@
 
 # set_mg = sendMsg("Den")
 # ...
-#..
+# ..
 # user_from = set_mg("Hello!")
 # ..
 # ..
@@ -151,7 +151,7 @@
 # x = hello
 # x()
 
-import functools
+
 # functools.wraps
 # functools.lru_cache()
 
@@ -165,7 +165,6 @@ import functools
 
 # def say():
 #     print("Hi")
-
 
 
 # wrapper_say = action(say)
@@ -247,23 +246,27 @@ import functools
 # print(add(2,3))
 # print(add(2,3))
 
+
 # DECORATOR
-#1.
-def sayUserHello(user): # основна функція
+# 1.
+def sayUserHello(user):  # основна функція
     msg = "Hello, " + user
 
-    def showMsf(): # вкладена функція є замиканням для основної, а змінна msg є для неї  nonlocal. Функція showMsf() має доступ до неї, щоб працювати з її значенням
-        print(msg+"! Let's start...")
+    def showMsf():  # вкладена функція є замиканням для основної, а змінна msg є для неї  nonlocal. Функція showMsf() має доступ до неї, щоб працювати з її значенням
+        print(msg + "! Let's start...")
 
     showMsf()
-print("1")
-sayUserHello('admin') # Hello, admin! Let's start...
 
-#Для того, щоб забезпечити бажаний результат (надання можливості змінювати значення нелокальних змінних усередині
+
+print("1")
+sayUserHello("admin")  # Hello, admin! Let's start...
+
+
+# Для того, щоб забезпечити бажаний результат (надання можливості змінювати значення нелокальних змінних усередині
 # функції-замикання) нам потрібно перед ім'ям такої змінною додати ключове слово nonlocal
-#2.
+# 2.
 def sayUserHello(user):
-    msg = "Hello, " + user # msg = "Student" -> буде передана з функції showMsf()
+    msg = "Hello, " + user  # msg = "Student" -> буде передана з функції showMsf()
 
     def showMsf():
         nonlocal msg
@@ -271,42 +274,52 @@ def sayUserHello(user):
         print(msg + "! Let's start...")
 
     showMsf()
-    print(msg) # Student! Let's start...
-               # Student
-print("2")
-sayUserHello('admin') #-> admin wil lbe changed to Student inside showMsf()
+    print(msg)  # Student! Let's start...
+    # Student
 
-#розглянемо ситуацію, коли наша охоплююча функція не викликає замикання, а повертає його, як результат своєї роботи.
-#3.
+
+print("2")
+sayUserHello("admin")  # -> admin wil lbe changed to Student inside showMsf()
+
+
+# розглянемо ситуацію, коли наша охоплююча функція не викликає замикання, а повертає його, як результат своєї роботи.
+# 3.
 def sayUserHello(user):
     msg = "Hello, " + user
 
     def showMsf():
-        print(msg+"! Let's start...")
+        print(msg + "! Let's start...")
 
     return showMsf
+
 
 # Оскільки тепер функція sayUserHello() повертає результат, то рядок коду із викликом функції sayUserHello() також
 # буде змінено: ми створимо змінну, яка прийме результат її роботи — об'єкт функції.
 
-result = sayUserHello('admin') # -> запишемо результат роботи функції в змінну
+result = sayUserHello("admin")  # -> запишемо результат роботи функції в змінну
 print("3")
-result() # -> виклечемо функцію # Hello, admin! Let's start..
+result()  # -> виклечемо функцію # Hello, admin! Let's start..
 
-#Функція-замикання doExercise2() використовує у своєму тілі лише змінну var1 (аргумент охоплюючої функції
+# Функція-замикання doExercise2() використовує у своєму тілі лише змінну var1 (аргумент охоплюючої функції
 # doExercise1()). Тому значення змінної var1 буде «запам'ятоване» (незважаючи на те, що виконання функції
 # doExercise1(2) було завершено).
-#4.
+# 4.
+
 
 def doExercise1(var1):
     var2 = 7
+
     def doExercise2(var3):
         return var1**var3
+
     return doExercise2
 
-result = doExercise1(2) # створюється функція doExercise2 -> ця функція запам'ятовує var1 =2
-#var1 = 2
-#var2 = 7 (але ми його не використовуємо)
+
+result = doExercise1(
+    2
+)  # створюється функція doExercise2 -> ця функція запам'ятовує var1 =2
+# var1 = 2
+# var2 = 7 (але ми його не використовуємо)
 
 # повертається doExercise2 вона пам’ятає, що var1 = 2.
 # Python шукає var1:
@@ -315,20 +328,21 @@ result = doExercise1(2) # створюється функція doExercise2 -> �
 # Тому бере його звідти
 
 print("4")
-print(result(5)) #2**5 = 32      5 -> var3  2 -> var1
-print(result(10)) #2**10 = 1024
+print(result(5))  # 2**5 = 32      5 -> var3  2 -> var1
+print(result(10))  # 2**10 = 1024
+
 
 # Лічильник
 # 5.
 def launchCounter():
-    counter = 0 #Створюється змінна counter = 0
+    counter = 0  # Створюється змінна counter = 0
 
-    def incrementCounter(): #Усередині створюється вкладена функція incrementCounter()
+    def incrementCounter():  # Усередині створюється вкладена функція incrementCounter()
         nonlocal counter
         counter += 1
         return counter
 
-    return incrementCounter #launchCounter() повертає саму функцію, а не число
+    return incrementCounter  # launchCounter() повертає саму функцію, а не число
 
 
 n = launchCounter()
@@ -340,56 +354,69 @@ for i in range(5):
 # Каррінг (також вживається термін «карирування») — це техніка перетворення функції від кількох аргументів
 # на послідовність функцій, кожна з яких має лише один аргумент.
 
+
 # Маємо функцію, яка приймає два аргументи: логін користувача, якому адресується повідомлення,
 # і сам текст повідомлення:
 def sendMsg(userTo, msgTxt):
-    print("Dear {}, welcome to Python world! {}".format(userTo,msgTxt))
+    print(f"Dear {userTo}, welcome to Python world! {msgTxt}")
 
-#Виклики
-sendMsg('admin', 'Have a nice day!')
-sendMsg('admin', 'See you!')
-sendMsg('admin', 'Good luck!')
-sendMsg('student', 'Good luck!')
+
+# Виклики
+sendMsg("admin", "Have a nice day!")
+sendMsg("admin", "See you!")
+sendMsg("admin", "Good luck!")
+sendMsg("student", "Good luck!")
 
 # аргумент userTo часто повторюється. Було б зручно в цій ситуації мати можливість викликати цю функцію із
 # встановленим (зафіксованим) першим аргументом «admin», вказуючи лише другий аргумент — текст повідомлення.
+
 
 # КАРРІНГ
 # 6.
 def sendMsg(userTo):
     def setMsg(msgTxt):
-        print("Dear {}, welcome to Python world! {}".format(userTo, msgTxt))
+        print(f"Dear {userTo}, welcome to Python world! {msgTxt}")
+
     return setMsg
+
 
 print("6")
 # Тепер створимо нову функцію для потрібного імені користувача:
-userAdmin = sendMsg('admin')
+userAdmin = sendMsg("admin")
 
 # І викличемо її з потрібними аргументами-повідомленнями:
-userAdmin('Have a nice day!')
-userAdmin('See you!')
-userAdmin('Good luck!')
+userAdmin("Have a nice day!")
+userAdmin("See you!")
+userAdmin("Good luck!")
 
 # Для користувача-студента (якому потрібно надіслати лише одне вітання) будемо безпосередньо викликати функцію
 # sendMsg() таким чином (тип користувача — студент є першим параметром функції ):
-sendMsg('student')('Good luck!')
+sendMsg("student")("Good luck!")
+
 
 # Будь яка кількість аргументів
 def sendMsg(userTo):
     def setMsg(msgTxt):
         def setUserFrom(userFrom):
             def setLang(lang):
-                print("Dear {}, Hello from {}. Welcome to {} world! {}".
-                       format(userTo, userFrom, lang, msgTxt))
+                print(
+                    f"Dear {userTo}, Hello from {userFrom}. Welcome to {lang} world! {msgTxt}"
+                )
+
             return setLang
+
         return setUserFrom
+
     return setMsg
 
+
 print("7")
-case1 = sendMsg('admin')('Good luck!') # передали параметри userTo, msgTxt
-case2 = sendMsg('student')('See you!')('admin') # передали параметри userTo, msgTxt, userFrom
-case1('teacher')('Python') # викликали sendMsg і додали параметри userFrom та lang
-case2('C++') # викликали і додали параметр lang
+case1 = sendMsg("admin")("Good luck!")  # передали параметри userTo, msgTxt
+case2 = sendMsg("student")("See you!")(
+    "admin"
+)  # передали параметри userTo, msgTxt, userFrom
+case1("teacher")("Python")  # викликали sendMsg і додали параметри userFrom та lang
+case2("C++")  # викликали і додали параметр lang
 
 # Карирування дозволяє нам легко створювати частково застосовані функції, які дозволяють спрощувати виклики
 # за недостатнього або частково повторюваного набору аргументів. При таких ситуаціях можна просто передати
@@ -401,21 +428,27 @@ case2('C++') # викликали і додали параметр lang
 # прямої зміни коду в її тілі.
 # Використання декораторів показує, що функція може працювати з іншою функцією як із звичайними аргументами (даними).
 
+
 def simpleDecorator(myFunction):
     print("Hello! I'm Decorator!")
+
     def simpleWrapper():
         print("Function starts working...")
         myFunction()
         print("See you!")
+
     return simpleWrapper
+
 
 # Всередині simpleDecorator() ми визначаємо функцію-«обгортку» simpleWrapper().
 # Функція simpleWrapper() «обертає» функцію-аргумент myFunction, тобто у своєму тілі містить рядки коду з
 # новою функціональністю та виклик «декорованої» функції myFunction().
 # Як результат декоратор повертає функцію-«обгортку».
 
-def sayHi(): #функцію, код якої ми (з різних причин) не можемо змінювати
+
+def sayHi():  # функцію, код якої ми (з різних причин) не можемо змінювати
     print("Welcome!")
+
 
 # Для зміни (доповнення, розширення) її функціональності ми її «декоруватимемо».
 # Передамо її декоратору simpleDecorator(), який за допомогою функції-«обгортки» simpleWrapper() додасть нову
@@ -425,15 +458,19 @@ print("8")
 sayHiAdvanced = simpleDecorator(sayHi)
 sayHiAdvanced()
 
+
 # 2. спосіб
 @simpleDecorator
 def sayHi():
     print("Welcome!")
 
+
 sayHi()
+
 
 def sayBye():
     print("Buy!")
+
 
 sayBye = simpleDecorator(sayBye)
 sayBye()
@@ -441,19 +478,26 @@ sayBye()
 # Тепер «декоруємо» нашу першу базову функцію sayHi() двома різними декораторами.
 # Для цього спочатку створимо другий декоратор:
 
+
 def simpleDecorator_v2(myFunction):
     print("Hello! I'm Second Decorator!")
+
     def simpleWrapper():
         print("Let's start...")
         myFunction()
         print("Good luck!")
+
     return simpleWrapper
 
+
 print("9")
+
+
 @simpleDecorator
-@simpleDecorator_v2 # 2 декоратор буде запущений першим, а всередині буде 1 декоратор
+@simpleDecorator_v2  # 2 декоратор буде запущений першим, а всередині буде 1 декоратор
 def sayHi():
     print("Welcome!")
+
 
 sayHi()
 
@@ -465,41 +509,53 @@ sayHi()
 # Good luck!
 # See you!
 
-#Якщо ж функція, яку потрібно «декорувати», має повертати значення, то його також має повертати і функція-«обгортка».
+
+# Якщо ж функція, яку потрібно «декорувати», має повертати значення, то його також має повертати і функція-«обгортка».
 def simpleDecorator_v3(myFunction):
     print("Hello! I'm Third Decorator!")
+
     def simpleWrapper():
         print("Function starts working...")
-        resutl = myFunction() # враппер повертає змінну, в яку записаний  результат роботи функцїі
+        resutl = (
+            myFunction()
+        )  # враппер повертає змінну, в яку записаний  результат роботи функцїі
         print("See you!")
         return resutl
-    return simpleWrapper # декоратор має повернути враппер
+
+    return simpleWrapper  # декоратор має повернути враппер
+
 
 def calculateSum():
     print("Welcome! Let's calculate...")
     x = int(input("x: "))
     y = int(input("y: "))
-    return x+y
+    return x + y
+
 
 calculateSum = simpleDecorator_v3(calculateSum)
 print("10")
 print(calculateSum())
 
+
 # передача аргументів у функцію, що декорується:
 def simpleDecorator_v4(myFunction):
     print("Hello! I'm Fourth Decorator!")
+
     def simpleWrapper(argX, argY):
-        print("I've got {}, {}. Function starts working...".format(argX, argY))
+        print(f"I've got {argX}, {argY}. Function starts working...")
         resutl = myFunction(argX, argY)
         print("See you!")
         return resutl
+
     return simpleWrapper
+
 
 def calculateSum_v1(a, b):
     print("Welcome! Let's calculate...")
     x = int(input("x: "))
     y = int(input("y: "))
-    return x+y+a+b
+    return x + y + a + b
+
 
 calculateSum_v1 = simpleDecorator_v4(calculateSum_v1)
 print("11")
@@ -508,30 +564,39 @@ print(calculateSum_v1(3, 4))
 # а чи можна передавати аргументи самому декоратору? Адже ми знаємо, як аргумент декоратор має приймати
 # базову функцію. А якщо нам потрібні якісь додаткові дані, наприклад, для управління
 # логікою роботи самого декоратора?
-#Для вирішення цього завдання нам потрібно додати ще один рівень абстракції — створити«обгортку» для самого
+# Для вирішення цього завдання нам потрібно додати ще один рівень абстракції — створити«обгортку» для самого
 # декоратора і передати цій функції потрібні додаткові аргументи.
-#Обов'язкова умова: ця функція-«обгортка» для декоратора має повертати декоратор в результаті своєї роботи.
+# Обов'язкова умова: ця функція-«обгортка» для декоратора має повертати декоратор в результаті своєї роботи.
 
-def decoratorWrapper(argForDec): # у враппер для декоратора ми можемо передати аргументи, які використовує декоратор
-    print("I've got arg = {} for decorator!".format(argForDec))
 
-    def simpleDecorator_v5(myFunction): # в декоратор ми передаємо функцію
-        print("Hello! I'm Decorator with arg = {}!".format(argForDec))
+def decoratorWrapper(
+    argForDec,
+):  # у враппер для декоратора ми можемо передати аргументи, які використовує декоратор
+    print(f"I've got arg = {argForDec} for decorator!")
 
-        def simpleWrapper(argX, argY): # в функцію ми передаємо її аргументи
-            print("Hi! I am Funcion. I've got {}, {}."
-                   "Function starts working...".format(argX, argY))
-            result = myFunction(argX, argY) + argForDec # 2+4+3+4+10
+    def simpleDecorator_v5(myFunction):  # в декоратор ми передаємо функцію
+        print(f"Hello! I'm Decorator with arg = {argForDec}!")
+
+        def simpleWrapper(argX, argY):  # в функцію ми передаємо її аргументи
+            print(
+                f"Hi! I am Funcion. I've got {argX}, {argY}."
+                "Function starts working..."
+            )
+            result = myFunction(argX, argY) + argForDec  # 2+4+3+4+10
             print("See you!")
-            return result # враппер має повернути результат виконання функції
-        return simpleWrapper # декоратор повертає враппер
-    return simpleDecorator_v5 # враппер для декоратора повертає декоратор
+            return result  # враппер має повернути результат виконання функції
+
+        return simpleWrapper  # декоратор повертає враппер
+
+    return simpleDecorator_v5  # враппер для декоратора повертає декоратор
+
 
 def calculateSum_v1(a, b):
     print("Welcome! Let's calculate...")
     x = int(input("x: "))
     y = int(input("y: "))
-    return x+y+a+b
+    return x + y + a + b
+
 
 print("12")
 decoratorWithArg_1 = decoratorWrapper(10)
@@ -540,35 +605,51 @@ calculateSum_v1 = decoratorWithArg_1(calculateSum_v1)
 print(calculateSum_v1(3, 4))
 
 print("13")
-#Припустимо, що ми маємо список із цінами на товари в доларах.
+# Припустимо, що ми маємо список із цінами на товари в доларах.
 pricesUSD = [100.34, 35, 67.99, 25.5]
 print(pricesUSD)
 
-def toPriceNew(priceList): #І функція, яка переводить ціну товару в доларах у відповідний гривневий еквівалент:
-    return list(map(lambda x: x*27.5, priceList))
 
-#Однак зараз на всі товари діє знижка (наприклад, 15%) і нам потрібно перевести ціни в гривні та ще
+def toPriceNew(
+    priceList,
+):  # І функція, яка переводить ціну товару в доларах у відповідний гривневий еквівалент:
+    return list(map(lambda x: x * 27.5, priceList))
+
+
+# Однак зараз на всі товари діє знижка (наприклад, 15%) і нам потрібно перевести ціни в гривні та ще
 # додатково врахувати знижку.
-#Знижка — непостійна характеристика товару, тому змінювати код функції toPriceNew() немає сенсу.
+# Знижка — непостійна характеристика товару, тому змінювати код функції toPriceNew() немає сенсу.
 # Знижку передавати як аргумент
 
-def setDiscountDecoratorWrapper(disc): # передаємо дисконт у декоратор як параметр
+
+def setDiscountDecoratorWrapper(disc):  # передаємо дисконт у декоратор як параметр
     def changePriceDecorator_v1(myFunction):
         print("Hello! Let's change your prices...")
 
         def simpleWrapper(argList):
-            print("I've got list of prices with {} elements. Function starts working...".
-                   format(len(argList)))
-            result = myFunction(argList) #функція toPriceNew, яка переводить ціну товару в доларах у гривневий еквівалент
-            resutlwithDisc = list(map(lambda x: x*(1-disc), result)) # приміняємо дисконт
+            print(
+                f"I've got list of prices with {len(argList)} elements. Function starts working..."
+            )
+            result = myFunction(
+                argList
+            )  # функція toPriceNew, яка переводить ціну товару в доларах у гривневий еквівалент
+            resutlwithDisc = list(
+                map(lambda x: x * (1 - disc), result)
+            )  # приміняємо дисконт
             print("Let's set a discount..")
             return resutlwithDisc
+
         return simpleWrapper
+
     return changePriceDecorator_v1
 
+
 discount = float(input("Discount value: ex. 1 -> 100% "))
-changePriceDecorator_v2 = setDiscountDecoratorWrapper(discount) # передаємо дисконт у враппер декоратора
+changePriceDecorator_v2 = setDiscountDecoratorWrapper(
+    discount
+)  # передаємо дисконт у враппер декоратора
 
-pricesToGRN = changePriceDecorator_v2(toPriceNew) # в декоратор маємо передати основну функцію для розрахунку
+pricesToGRN = changePriceDecorator_v2(
+    toPriceNew
+)  # в декоратор маємо передати основну функцію для розрахунку
 print(pricesToGRN(pricesUSD))
-

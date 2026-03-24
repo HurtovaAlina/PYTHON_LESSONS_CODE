@@ -2,6 +2,7 @@
 модуль для роботи зі строками
 
 """
+
 import re
 
 
@@ -11,22 +12,23 @@ def punctuation_delete(text: str) -> str:
     :param text: строка
     :return: строка без пунктуації
     """
-    punctuation_pattern = '[,.?!;:—]'
-    return re.sub(punctuation_pattern, '', text)
+    punctuation_pattern = "[,.?!;:—]"
+    return re.sub(punctuation_pattern, "", text)
 
 
 def vowels_check(text: str) -> int:
-    """ Рахує голосні літери в строкі
+    """Рахує голосні літери в строкі
 
     :param text: строка
     :return: кількість голосних літер
     """
-    vowels_list = ['а', 'е', 'и', 'о', 'у', 'я', 'ю', 'є', 'ї', 'і']
+    vowels_list = ["а", "е", "и", "о", "у", "я", "ю", "є", "ї", "і"]
     count = 0
     for i in text:
         if i in vowels_list:
-            count +=1
+            count += 1
     return count
+
 
 def is_palindrom(text: str) -> bool:
     """
@@ -46,15 +48,15 @@ def is_palindrom(text: str) -> bool:
 if __name__ == "__main__":
     print("Перевірка роботи модуля")
     text = input("Введіть текст: ")
-    function = input("Введіть назву функції: punctuation_delete | vowels_check | is_palindrom ")
+    function = input(
+        "Введіть назву функції: punctuation_delete | vowels_check | is_palindrom "
+    )
 
     if function == "punctuation_delete":
-
         new_text = punctuation_delete(text)
         print("Текст без знаків пунктуації: ", new_text)
 
     elif function == "vowels_check":
-
         vowels_count = vowels_check(text)
         print("Кількість голосних: ", vowels_count)
 

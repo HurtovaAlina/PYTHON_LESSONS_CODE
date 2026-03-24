@@ -23,7 +23,6 @@
 # print(a+b)
 # print(a, b)
 # print(a*3)
-from random import randint, randrange, random
 
 
 # def foo():
@@ -78,7 +77,7 @@ from random import randint, randrange, random
 # print(users)
 #
 # users.intersection()
-#intersection (перетин) — це операція, яка знаходить спільні елементи між двома або більше наборами (множинами).
+# intersection (перетин) — це операція, яка знаходить спільні елементи між двома або більше наборами (множинами).
 # Простіше кажучи:
 # 👉 повертає ті значення, які є одночасно в усіх наборах.
 #
@@ -91,7 +90,7 @@ from random import randint, randrange, random
 # print(res)
 #
 # a.intersection_update(b)
-#intersection_update() у Python оновлює множину, залишаючи в ній тільки ті елементи, які є спільними з іншою множиною.
+# intersection_update() у Python оновлює множину, залишаючи в ній тільки ті елементи, які є спільними з іншою множиною.
 # 👉 Тобто це як intersection(), але
 # змінює початкову множину, а не створює нову.
 #
@@ -101,12 +100,12 @@ from random import randint, randrange, random
 # res1 = a.difference(b)
 # res2 = b.difference(a)
 # print(res1,res2)
-#difference() повертає елементи, які є в множині a, але відсутні в множині b.
+# difference() повертає елементи, які є в множині a, але відсутні в множині b.
 # 👉 Тобто це різниця множин.
 
 # a.difference_update(b)
 # print(a)
-#difference_update() видаляє з множини a всі елементи, які є в множині b.
+# difference_update() видаляє з множини a всі елементи, які є в множині b.
 # 👉 На відміну від difference(),
 # ця операція змінює саму множину a, а не створює нову.
 
@@ -121,7 +120,7 @@ from random import randint, randrange, random
 # res = a.symmetric_difference(b)
 # print(a ^ b)
 # print(res)
-#symmetric_difference() повертає елементи, які є в a або в b, але НЕ в обох одночасно.
+# symmetric_difference() повертає елементи, які є в a або в b, але НЕ в обох одночасно.
 # 👉 Тобто це елементи без спільних.
 # c = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0}
 # print(a.issubset(c))
@@ -137,7 +136,7 @@ from random import randint, randrange, random
 # 👉 Тобто чи всі елементи c входять у a.
 
 # a.remove()
-#Видаляє елемент x з множини a. Якщо елемента немає, буде помилка:
+# Видаляє елемент x з множини a. Якщо елемента немає, буде помилка:
 
 # a.discard()
 # Теж видаляє елемент x,

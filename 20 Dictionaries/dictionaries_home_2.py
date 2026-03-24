@@ -9,16 +9,10 @@
 # гривні(або гривні у долари), потрібно щоб у словнику була
 # інформація скільки гривень в 1 гривні
 
-currencies = {
-    "USD": 41.2,
-    "EUR": 44.5,
-    "PLN": 10.3,
-    "GBP": 52.1,
-    "UAH": 1
-}
+currencies = {"USD": 41.2, "EUR": 44.5, "PLN": 10.3, "GBP": 52.1, "UAH": 1}
+
 
 def currency_check(currency, currencies):
-
     if currency == "":
         raise ValueError("Currency can not be empty")
 
@@ -47,12 +41,15 @@ def currency_exchange():
     if currency_amount <= 0:
         raise ValueError("Currency can not be negative or zero")
 
-    print(f"Changing currency {currency_amount} from {currency_name} to {currency_name_to_change}")
-    hryvna = currencies[currency_name]*currency_amount
+    print(
+        f"Changing currency {currency_amount} from {currency_name} to {currency_name_to_change}"
+    )
+    hryvna = currencies[currency_name] * currency_amount
 
-    changed_currency = round(hryvna/currencies[currency_name_to_change],2)
+    changed_currency = round(hryvna / currencies[currency_name_to_change], 2)
 
     return changed_currency
+
 
 try:
     print(currency_exchange())
@@ -62,7 +59,6 @@ except ValueError as e:
 
 except KeyError as e:
     print("Key error:", e)
-
 
 
 # Завдання 2
@@ -77,11 +73,14 @@ except KeyError as e:
 office = {"Ivan", "Oleg", "Anna", "Maria"}
 remote = {"Anna", "Petro", "Oleg", "Max"}
 
+
 def get_all_employees(office, remote):
     return office.union(remote)
 
+
 def get_employees_office_remote_both(office, remote):
     return office.intersection(remote)
+
 
 all_employees = get_all_employees(office, remote)
 print("All employees ", all_employees)
@@ -91,9 +90,11 @@ print("Employees working in office and remote ", remote_office_employees)
 try:
     qty_all_employees = len(all_employees)
     qty_remote_office_employees = len(remote_office_employees)
-    percent = round((qty_remote_office_employees/qty_all_employees)*100, 2)
+    percent = round((qty_remote_office_employees / qty_all_employees) * 100, 2)
 except ZeroDivisionError as error:
     print("Zero division: ", error)
     percent = 0
 
-print(f"Percent of employees working in office and remote in total amount of employees - {percent}%")
+print(
+    f"Percent of employees working in office and remote in total amount of employees - {percent}%"
+)

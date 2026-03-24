@@ -235,7 +235,7 @@
 #     print(type(avg))
 #     print("Середнє: ", avg)
 
-#Завдання 6.
+# Завдання 6.
 # Умова
 # Користувач вводить ціле число n від 1 до 10000(сума для зняття).Програма має “видати” цю суму
 # і показати її: цифрами словами(у дужках)
@@ -255,7 +255,7 @@ n3_amount = ""
 n4_amount = ""
 n5_amount = ""
 
-#print(f"{n1}, \n{n2}, \n{n3}, \n{n4}, \n{n5}")
+# print(f"{n1}, \n{n2}, \n{n3}, \n{n4}, \n{n5}")
 if amount <= 10000 and isinstance(amount, int):
     if n1 == 1:
         n1_amount = "десять тисяч гривень"
@@ -322,7 +322,7 @@ if amount <= 10000 and isinstance(amount, int):
                     n4_amount = "вісімнадцять"
                 case 9:
                     n4_amount = "девʼятнадцять"
-        if 1 < n4 <=9:
+        if 1 < n4 <= 9:
             match n4:
                 case 2:
                     n4_amount = "двадцять"
@@ -340,7 +340,7 @@ if amount <= 10000 and isinstance(amount, int):
                     n4_amount = "вісімдесят"
                 case 9:
                     n4_amount = "девʼяносто"
-        if 1<= n5 <= 9:
+        if 1 <= n5 <= 9:
             match n5:
                 case 1:
                     n5_amount = "один"

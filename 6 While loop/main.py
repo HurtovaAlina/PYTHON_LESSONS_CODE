@@ -11,7 +11,7 @@ if start > end:
 while start <= end:
     if start % 7 == 0:
         print(f"{start}")
-    start +=1
+    start += 1
 print("End of loop")
 
 # Завдання 2
@@ -30,8 +30,8 @@ if start > end:
 print("\nPrint all numbers")
 i = start
 while i <= end:
-    print(i, end = "\t")
-    i +=1
+    print(i, end="\t")
+    i += 1
 print("\nPrint all numbers in opposite order")
 j = start
 while j < i:
@@ -43,7 +43,7 @@ while start <= end:
     if start % 7 == 0:
         print(f"{start}", end="\t")
     if start % 5 == 0:
-        count+=1
+        count += 1
     start += 1
 print("\nAmount of numbers multiple of 5 = ", count)
 
@@ -62,13 +62,13 @@ if start > end:
 
 while start <= end:
     if start % 3 == 0 and start % 5 != 0:
-        print("Fizz,", end = "\t")
+        print("Fizz,", end="\t")
     if start % 5 == 0 and start % 3 != 0:
-        print("Buzz,", end = "\t")
+        print("Buzz,", end="\t")
     if start % 3 == 0 and start % 5 == 0:
-        print("Fizz Buzz,", end = "\t")
+        print("Fizz Buzz,", end="\t")
     if start % 5 != 0 and start % 3 != 0:
-        print(f"{start},", end = "\t")
+        print(f"{start},", end="\t")
     start += 1
 print("\nEnd of loop")
 
@@ -81,7 +81,7 @@ print("\nEnd of loop")
 start = int(input("Enter start = "))
 end = int(input("Enter end = "))
 step = int(input("Enter step = "))
-output_result = (input("Enter output direct OR reverse order "))
+output_result = input("Enter output direct OR reverse order ")
 
 if start > end:
     start, end = end, start
@@ -89,7 +89,7 @@ if start > end:
 if output_result == "direct":
     while start <= end:
         print(start, end="\t")
-        start +=step
+        start += step
     print(end)
 elif output_result == "reverse":
     while end > start:
@@ -113,8 +113,8 @@ if start > end:
 
 while start <= end:
     if start % 4 == 0 and start % 6 != 0:
-        mult *=start
-    start+=1
+        mult *= start
+    start += 1
 if mult == 1:
     print("There are no any numbers multiples of 4 and not multiple of 6")
 else:
@@ -128,10 +128,10 @@ A = int(input("Enter number "))
 N = int(input("Enter power "))
 i = 1
 power = 1
-if N>0:
+if N > 0:
     while i <= N:
-        power = power*A
-        i+=1
+        power = power * A
+        i += 1
     print(power)
 if N == 0:
     print("Power of the number A = ", power)

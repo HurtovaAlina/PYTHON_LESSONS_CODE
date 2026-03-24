@@ -53,13 +53,14 @@
 # знаходить слово зі списку, в якому найбільша кількість даної
 # літери.
 
+
 def letter_in_word(words, letter) -> list:
     """
     Функція отримує літеру та список слів і знаходить слово зі списку, в якому найбільша кількість даної літери
     :param words: список слів
     """
     # words_with_letter = list(filter(lambda word: letter in word, words))
-    word_with_max = max(words, key = lambda word: word.count(letter))
+    word_with_max = max(words, key=lambda word: word.count(letter))
     # max_count = 0
     # word_with_max = words_with_letter[0]
     # for word in  words_with_letter:
@@ -73,4 +74,3 @@ def letter_in_word(words, letter) -> list:
 
 words = ["apple", "pear", "ananas", "plum", "peach", "aaaaa"]
 print(letter_in_word(words, "a"))
-

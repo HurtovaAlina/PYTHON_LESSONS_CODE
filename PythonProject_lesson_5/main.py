@@ -31,7 +31,7 @@ print(n and True)
 print(True and n)
 # повернув правий елемент якщо лівий є вірний
 
-print(n==5 and n)
+print(n == 5 and n)
 # якщо перша умова не вірна, повертається False
 
 print(n > 0 and n <= 50 and n != 20 and n != 15)
@@ -39,7 +39,7 @@ print(n > 0 and n <= 50 and n != 20 and n != 15)
 # or  логічне або, хочаб одне щось вірне. Зліва і зправа False -> False, хочаб один True -> True
 
 # False or False -> False
-#True or False -> True
+# True or False -> True
 # .. or .. -> True
 
 is_admin = False
@@ -49,7 +49,7 @@ is_stuff = is_admin or is_moderator
 print(is_stuff)
 
 n1 = 5
-print(n1 or False) # поверне завжди True
+print(n1 or False)  # поверне завжди True
 print(False or n1)
 
 n2 = 0
@@ -61,7 +61,7 @@ print(False or n2)
 # not False -> True
 print(not 5)
 print(not 0)
-print(not (5>5 and 1 == 1))
+print(not (5 > 5 and 1 == 1))
 
 n1 = 5
 n2 = 5.1

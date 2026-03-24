@@ -1,7 +1,6 @@
-#Diskriminant
-from math import sqrt
+# Diskriminant
 
-#ax^2+bx+c=0
+# ax^2+bx+c=0
 # a = 5
 # b = 1
 # c = 6
@@ -44,13 +43,13 @@ from math import sqrt
 #     bonus = salary * 0.15
 #     print("Award : ", bonus)
 
-#match
+# match
 
-#match <varible>:
-#....case <variable_value1>:
-#........code for case
-#....case <variable_value2>:
-#........code for case
+# match <varible>:
+# ....case <variable_value1>:
+# ........code for case
+# ....case <variable_value2>:
+# ........code for case
 
 # x = 5
 # match x:
@@ -100,9 +99,9 @@ from math import sqrt
 #             print("its even number")
 #         print("Another ", value)
 
-#guard if after case -> additional check to have case worked
+# guard if after case -> additional check to have case worked
 
-#Користувач вводить зп і стаж
+# Користувач вводить зп і стаж
 # salary = float(input("Enter salary: "))
 # years = float(input("Experience (years) : "))
 #

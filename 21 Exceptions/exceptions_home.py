@@ -5,6 +5,7 @@
 # Написати код try … except який використовує дану
 # функцію.
 
+
 def check_password():
     password = input("Enter password ")
     password_without_repeated_chars = set(password)
@@ -20,12 +21,12 @@ def check_password():
 
     return password
 
+
 try:
     print(check_password())
 
 except ValueError as error:
     print("Value error:", error)
-
 
 
 # Завдання 2
@@ -35,6 +36,7 @@ except ValueError as error:
 # ValueError.
 # Написати код try … except який використовує дану
 # функцію.
+
 
 def ask_login_password(credentials):
     login = input("Enter login ")
@@ -47,7 +49,7 @@ def ask_login_password(credentials):
 
     password = input("Enter password ")
 
-    if password =="":
+    if password == "":
         raise ValueError("Password can not be empty")
 
     if credentials[login] != password:
@@ -55,14 +57,10 @@ def ask_login_password(credentials):
 
     return login, password
 
-credentials = {
-    "admin" : "1234QWERTY",
-    "user" : "QAZ12345",
-    "support" : "poiu345"
-}
+
+credentials = {"admin": "1234QWERTY", "user": "QAZ12345", "support": "poiu345"}
 
 try:
-
     login, password = ask_login_password(credentials)
     print(f"Credentials: login = {login}, password = {password}")
 

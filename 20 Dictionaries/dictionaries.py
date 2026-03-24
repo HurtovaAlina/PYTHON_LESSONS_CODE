@@ -20,8 +20,9 @@ bank_accounts = {
     "Марія": 3200.50,
     "Олег": 750.10,
     "Анна": 5400.00,
-    "Петро": 120.00
+    "Петро": 120.00,
 }
+
 
 def add_to_balance(bank_accounts):
     """
@@ -58,13 +59,16 @@ def withdraw_amount(bank_accounts):
 
     if client_name not in bank_accounts:
         print(f"Client with {client_name} name was not found")
-    elif bank_accounts[client_name] - amount_to_withdraw >=0:
+    elif bank_accounts[client_name] - amount_to_withdraw >= 0:
         bank_accounts[client_name] -= amount_to_withdraw
         print(f"Amount for {client_name} was reduced by {amount_to_withdraw}")
     else:
-        print(f"You current balance doesn't allow to withdraw amount {amount_to_withdraw}")
+        print(
+            f"You current balance doesn't allow to withdraw amount {amount_to_withdraw}"
+        )
 
     return bank_accounts
+
 
 def main() -> None:
     """
@@ -72,7 +76,6 @@ def main() -> None:
 
     """
     while True:
-
         action = input("Enter action Add/Withdraw/Finish you want to perform ")
 
         if action == "Add":
@@ -80,9 +83,10 @@ def main() -> None:
         elif action == "Withdraw":
             print(f"Bank account was updated {withdraw_amount(bank_accounts)}")
         elif action == "Finish":
-            print(f"Program is finished")
+            print("Program is finished")
             break
         else:
             print("Action is not allowed")
+
 
 main()

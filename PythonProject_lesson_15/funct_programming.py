@@ -14,9 +14,9 @@
 # print(do_action(1,2, action1))
 # print(do_action(1,2, action2))
 
-#hof  - high order function
+# hof  - high order function
 
-#side effects -> function changes outside
+# side effects -> function changes outside
 # мінімізувати зміни в глобальній області
 
 # Наприклад, завдання знаходження успішних студентів у групі (з середнім балом понад 60) зручно розбити на такі кроки (окремі підзадачі):
@@ -175,9 +175,6 @@
 # ls3 = ["+380xx", "+380yy", "+380zz", "+380aa"]
 # res = list(zip(ls1, ls2, ls3))
 # print(res)
-
-
-import functools
 
 
 # def foo(acc, x):

@@ -6,7 +6,6 @@ import re
 
 
 def total_working_hours(working_hours, working_hours_overtime):
-
     total_hours = working_hours.copy()
 
     for name in working_hours_overtime:
@@ -18,20 +17,13 @@ def total_working_hours(working_hours, working_hours_overtime):
     return total_hours
 
 
-working_hours = {
-    "John": 10,
-    "Mary": 20,
-    "Den": 30
-}
+working_hours = {"John": 10, "Mary": 20, "Den": 30}
 
-working_hours_overtime = {
-    "John": 2,
-    "Anna": 5,
-    "Den": 4
-}
+working_hours_overtime = {"John": 2, "Anna": 5, "Den": 4}
 
 total = total_working_hours(working_hours, working_hours_overtime)
 print(total)
+
 
 # Завдання 2
 # Напишіть функцію, яка отримує словник та інвертує його,
@@ -44,11 +36,8 @@ def reverse_dist(dictionary):
         new_dict[value] = key
     return new_dict
 
-dictionary =  {
-    "John": 10,
-    "Mary": 20,
-    "Den": 30
-}
+
+dictionary = {"John": 10, "Mary": 20, "Den": 30}
 
 print(reverse_dist(dictionary))
 
@@ -66,14 +55,14 @@ total_price = 0
 while True:
     key = input("Enter item name ")
 
-    if key !="":
+    if key != "":
         value = float(input("Enter price "))
         if key in items:
             items[key] += value
-            total_price+=value
+            total_price += value
         else:
             items[key] = value
-            total_price +=value
+            total_price += value
     else:
         break
 
@@ -90,7 +79,8 @@ print(total_price)
 # значення в словнику будуть кількостями слів, чи
 # частотою(відсотком від загальної кількості).
 
-def text_to_dictionary(text, qty = True):
+
+def text_to_dictionary(text, qty=True):
     deleted_punctuation = re.sub(r"[^\w\s]", "", text)
     text = deleted_punctuation.split()
 
@@ -103,13 +93,14 @@ def text_to_dictionary(text, qty = True):
         if qty:
             new_dictionary[word] = len(word)
         else:
-            new_dictionary[word] = round((len(word)/total_letters)*100, 2)
+            new_dictionary[word] = round((len(word) / total_letters) * 100, 2)
     return new_dictionary
 
 
 print(text_to_dictionary("Fflgjfh ghjj - ghfghdgh, ryththy.", False))
 
 ###############################################################################
+
 
 def text_to_dictionary(text, qty):
     deleted_punctuation = re.sub(r"[^\w\s]", "", text)
@@ -131,6 +122,7 @@ def text_to_dictionary(text, qty):
 
     return new_dictionary
 
+
 print(text_to_dictionary("Fflgjfh ghfghdgh ghjj - ghfghdgh, ghjj ryththy ghjj.", False))
 
 # Завдання 5
@@ -142,8 +134,10 @@ print(text_to_dictionary("Fflgjfh ghfghdgh ghjj - ghfghdgh, ghjj ryththy ghjj.",
 groups = {
     "Group A": ["John", "Mary", "Den"],
     "Group B": ["Anna", "Kate", "Tom"],
-    "Group C": ["Mike", "Sara"]
+    "Group C": ["Mike", "Sara"],
 }
+
+
 def add_student(group, student):
     if group in groups:
         groups[group].append(student)
@@ -151,17 +145,20 @@ def add_student(group, student):
         groups[group] = [student]
     print(f"Added student {student} to {group}")
 
+
 def delete_student(student):
     for group, students in groups.items():
         if student in students:
             students.remove(student)
     print(f"Deleted student {student} from {group}")
 
+
 def print_groups_of_students():
     for group, students in groups.items():
         print(f"{group} - {students}")
 
-add_student("Group C","Alina")
+
+add_student("Group C", "Alina")
 print_groups_of_students()
 delete_student("Alina")
 print_groups_of_students()
@@ -174,6 +171,7 @@ print_groups_of_students()
 # де ключ ім’я, а значення – словник з попередньої функції.
 # Після чого виведіть середній вік.
 
+
 def name_age_position():
     users_info = {}
 
@@ -183,6 +181,7 @@ def name_age_position():
 
     return users_info
 
+
 def add_users(user_num):
     new_users_info = {}
     for i in range(user_num):
@@ -191,11 +190,12 @@ def add_users(user_num):
 
     return new_users_info
 
+
 def avg_age(new_users_info):
     total_age = sum(user["age"] for user in new_users_info.values())
-    return round(total_age/len(new_users_info),2)
+    return round(total_age / len(new_users_info), 2)
+
 
 new_users = add_users(3)
 print(new_users)
 print(avg_age(new_users))
-

@@ -12,11 +12,11 @@ import random
 
 numbers = input("Enter numbers separated with comma ")
 
-if numbers.strip() =='':
+if numbers.strip() == "":
     new_numbers = tuple(random.randint(1, 100) for _ in range(12))
     print(new_numbers)
 else:
-    numbers = numbers.split(',')
+    numbers = numbers.split(",")
     new_numbers = tuple(map(int, numbers))
 
 sum_of_numbers = sum(new_numbers)
@@ -28,7 +28,9 @@ print(f"Min number = {min_number}, max number = {max_number}")
 
 first_three_numbers = new_numbers[:3]
 last_three_numbers = new_numbers[-3:]
-print(f"First three numbers = {first_three_numbers}, last three numbers = {last_three_numbers}")
+print(
+    f"First three numbers = {first_three_numbers}, last three numbers = {last_three_numbers}"
+)
 
 count_of_sevens = lambda num: new_numbers.count(7)
 print("Count of sevens = ", count_of_sevens(new_numbers))
@@ -76,18 +78,18 @@ movies = (
     "Dune",
     "Infinity",
     "12 Angry Men",
-    "Some Like It Hot"
+    "Some Like It Hot",
 )
 
 film_name = input("Enter the film ")
-half_of_tuple = int(round((len(movies)+1)/2, 0))
+half_of_tuple = int(round((len(movies) + 1) / 2, 0))
 
 if film_name in movies:
     if film_name in movies[:half_of_tuple]:
         print("Retro film")
-    elif film_name in movies[half_of_tuple:len(movies)] and film_name in movies[-5:]:
+    elif film_name in movies[half_of_tuple : len(movies)] and film_name in movies[-5:]:
         print("New film")
-    elif film_name in movies[half_of_tuple:len(movies)]:
+    elif film_name in movies[half_of_tuple : len(movies)]:
         print("Modern film")
 
 else:
@@ -101,16 +103,10 @@ else:
 # ("яблуко", "яблуко Сидоренко", "банан жовтий", "Яблуко")
 # Яблуко зустрічається 3 рази
 
-fruits = (
-    "apple",
-    "banana",
-    "red apple",
-    "peach",
-    "plum",
-    "golden apple"
-)
+fruits = ("apple", "banana", "red apple", "peach", "plum", "golden apple")
 
-def count_of_word(fruits, word)-> int:
+
+def count_of_word(fruits, word) -> int:
     """
     returns how many times word met in fruits
     :param fruits: tuple of fruits
@@ -119,6 +115,7 @@ def count_of_word(fruits, word)-> int:
     """
     word = word.lower()
     return sum(fruit.count(word) for fruit in fruits)
+
 
 word = "apple"
 print(f"Word {word} meets in fruits {count_of_word(fruits, word)} times")
@@ -131,18 +128,7 @@ print(f"Word {word} meets in fruits {count_of_word(fruits, word)} times")
 # двоцифрових – 5 шт
 # трицифрових – 2 шт
 #
-numbers = (
-    2,
-    -33,
-    56,
-    5,
-    -789,
-    0,
-    45,
-    245,
-    34,
-    6789
-)
+numbers = (2, -33, 56, 5, -789, 0, 45, 245, 34, 6789)
 
 
 def digits_count(numbers):
@@ -152,7 +138,7 @@ def digits_count(numbers):
         if length > max_digits:
             max_digits = length
 
-    count_of_digits = [0]*max_digits
+    count_of_digits = [0] * max_digits
     for num in numbers:
         length = len(str(abs(num)))
         count_of_digits[length - 1] += 1
@@ -164,8 +150,6 @@ for i in count_of_digits:
     print(f"{count_of_digits.index(i)+1}-digits – {i}")
 
 
-
-
 # Завдання 6
 # Користувач вводить назви товарів через кому. Потрібно
 # сформувати кортеж. Також вводяться ціни товарів, які теж
@@ -173,14 +157,14 @@ for i in count_of_digits:
 # Також виведіть назви найдорожчого та найдешевшого товарів.
 
 items = input("Enter items, separated by comma ")
-items_tuple = tuple(items.lower().split(', '))
+items_tuple = tuple(items.lower().split(", "))
 
 prices = input("Enter price for each item ")
-prices_tuple = tuple(map(float, prices.split(', ')))
+prices_tuple = tuple(map(float, prices.split(", ")))
 
 agregated_data = []
 
-for item, price in zip(items_tuple, prices_tuple):
+for item, price in zip(items_tuple, prices_tuple, strict=False):
     result = (item, price)
     agregated_data.append(tuple(result))
     print(item, price)
@@ -190,10 +174,3 @@ item_with_min_price = min(agregated_data, key=lambda x: x[1])
 
 print("Item with max price", item_with_max_price)
 print("Item with min price", item_with_min_price)
-
-
-
-
-
-
-

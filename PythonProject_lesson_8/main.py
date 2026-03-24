@@ -1,6 +1,5 @@
 # while - поки умова true  виконувати тіло поки не стане false
 # for in задача перебрати колекцію поелементно. Коли все перебере - зупиниться
-from random import random, randint
 
 # for  <variable> in <container>:
 #  ... code
@@ -15,12 +14,12 @@ from random import random, randint
 #     print(i)
 
 # функція range(1, 2, 5) - повертає обʼєкт діапазон і цикл перебирає діапазон
-#range(start, stop)
+# range(start, stop)
 # range(1,5) -> 1,2,3,4
 # range(5) -> 0, 1, 2, 3, 4
-#range(start, stop, step)
-#range(2,10,2) -> 2, 4, 6, 8
-#range(10, 2, -2) -> 10, 8, 6, 4
+# range(start, stop, step)
+# range(2,10,2) -> 2, 4, 6, 8
+# range(10, 2, -2) -> 10, 8, 6, 4
 # r = range(1,5,2)
 # print(r)
 
@@ -57,7 +56,7 @@ from random import random, randint
 # for i in range(1, l+1):
 #     print("*", end = "")
 
-#print("*"*int(input("length ")))
+# print("*"*int(input("length ")))
 
 # line = ""
 # l = int(input("length "))
@@ -72,7 +71,7 @@ from random import random, randint
 # Користувач вводить з клавіатури довжину лінії та символ для заповнення лінії. Потрібно відобразити на екрані
 # горизонтальну лінію із введеного символу, зазначеної довжини.
 # Наприклад, якщо було введено 5 і &, тоді виведення на екран буде таким:
-#&&&&&
+# &&&&&
 
 # width = 10
 # ch = "&"
@@ -276,4 +275,3 @@ from random import random, randint
 #         print("Not satisfactorily")
 # else:
 #     print("Wrong level")
-
