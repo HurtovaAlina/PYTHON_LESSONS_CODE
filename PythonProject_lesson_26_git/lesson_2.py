@@ -26,3 +26,10 @@ def add_xy(x, y):
     return x + y
 
 print(add_xy(3, 4))
+def read_file(filename):
+    with open(filename, "r") as file:
+        print(file.read())
+
+print(read_file("new-text.txt"))
+
+print_text()
