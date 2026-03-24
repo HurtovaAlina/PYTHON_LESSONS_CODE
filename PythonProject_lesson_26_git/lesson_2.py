@@ -7,9 +7,9 @@ import math
 print(math.sqrt(16))
 print(new(3, 4))
 
-def print_text(text):
+def print_text(text_1):
 
-    print(text)
+    print(text_1)
 
 print(print_text("Hello world"))
 
@@ -21,3 +21,8 @@ print(new_xy(3, 4))
 
 with open("new-text.txt", "r") as file:
     print(file.read())
+
+def add_xy(x, y):
+    return x + y
+
+print(add_xy(3, 4))
