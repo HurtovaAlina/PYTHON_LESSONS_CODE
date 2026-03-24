@@ -37,6 +37,9 @@ git restore
  OR git pull origin [branch_name]
  origin - repository on github
 
+ # delete local branch
+ git branch -d [branch_name]
+
 # встановити pre-commit
  pip install pre-commit
  pre-commit install
