@@ -5,26 +5,26 @@
 import math
 
 
-class Student:
-
-    def __init__(self, name, age):
-        self.name = name.capitalize()
-        self.age = age
-
-    def get_student_info(self):
-        print(f"Ім'я: {self.name}, вік: {self.age}")
-
-students = []
-student_1 = Student("John", 25)
-student_2 = Student("Alice", 22)
-student_3 = Student("Bob", 23)
-
-students.append(student_1)
-students.append(student_2)
-students.append(student_3)
-
-for student in students:
-    student.get_student_info()
+# class Student:
+#
+#     def __init__(self, name, age):
+#         self.name = name.capitalize()
+#         self.age = age
+#
+#     def get_student_info(self):
+#         print(f"Ім'я: {self.name}, вік: {self.age}")
+#
+# students = []
+# student_1 = Student("John", 25)
+# student_2 = Student("Alice", 22)
+# student_3 = Student("Bob", 23)
+#
+# students.append(student_1)
+# students.append(student_2)
+# students.append(student_3)
+#
+# for student in students:
+#     student.get_student_info()
 
 
 # Завдання 2
@@ -32,29 +32,29 @@ for student in students:
 # користувач. Після чого для кожного студента виведіть
 # інформацію про нього за допомогою метода.
 
-new_students = []
-students_qty = 3
-for i in range (students_qty):
-    name = input("Enter name: ")
-    age = int(input("Enter age: "))
-    new_students.append(Student(name, age))
-
-for student in new_students:
-    student.get_student_info()
+# new_students = []
+# students_qty = 3
+# for i in range (students_qty):
+#     name = input("Enter name: ")
+#     age = int(input("Enter age: "))
+#     new_students.append(Student(name, age))
+#
+# for student in new_students:
+#     student.get_student_info()
 
 # Завдання 3
 # Створіть клас Circle з атрибутом radius. Додайте метод для
 # отримання площі кола
 
-class Circle:
-    def __init__(self, radius):
-        self.radius = radius
-
-    def circle_area(self):
-        return self.radius**2*math.pi
-
-circle_1 = Circle(3)
-print(circle_1.circle_area())
+# class Circle:
+#     def __init__(self, radius):
+#         self.radius = radius
+#
+#     def circle_area(self):
+#         return self.radius**2*math.pi
+#
+# circle_1 = Circle(3)
+# print(circle_1.circle_area())
 
 # Завдання 4
 # Створіть клас BankAccount з атрибутами owner та balance.
@@ -72,7 +72,11 @@ class BancAccount:
         self.balance += amount
 
     def withdraw(self, amount):
-        self.balance -= amount
+        if self.balance>=amount:
+            self.balance -= amount
+        else:
+            print("Can not withdraw")
+
 
     def get_account_info(self):
         print(f"Account info: owner {self.owner} current balance {self.balance}")
