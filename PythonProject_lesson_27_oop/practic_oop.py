@@ -101,3 +101,28 @@ account.get_account_info()
 # атрибут is_ready
 # Додайте метод move який виводить повідомлення, що
 # автомобіль їде, або ж ще не готовий в залежності від is_ready.
+
+class Car:
+
+    def __init__(self, brand, year, is_ready = False):
+        self.brand = brand
+        self.year = year
+        self.is_ready = is_ready
+
+    def start_engine(self):
+        if not self.is_ready:
+            self.is_ready = True
+
+    def move(self):
+        if self.is_ready:
+            print(f"Car {self.brand} is moving")
+        else:
+            print(f"Car {self.brand} not ready to move")
+
+
+car_1 = Car("opel", 2020)
+car_2 = Car ("nissan", 2024)
+
+car_1.start_engine()
+car_1.move()
+car_2.move()
