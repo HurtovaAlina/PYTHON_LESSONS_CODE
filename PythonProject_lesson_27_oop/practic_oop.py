@@ -1,0 +1,52 @@
+# Завдання 1
+# Створіть клас Student з атрибутами name та age. Додайте
+# метод для виводу інформації у форматі «Ім’я: {name}, вік:
+# {age}»
+
+class Student:
+
+    def __init__(self, name, age):
+        self.name = name.capitalize()
+        self.age = age
+
+    def get_student_info(self):
+        print(f"Ім'я: {self.name}, вік: {self.age}")
+
+students = []
+student_1 = Student("John", 25)
+student_2 = Student("Alice", 22)
+student_3 = Student("Bob", 23)
+
+students.append(student_1)
+students.append(student_2)
+students.append(student_3)
+
+for student in students:
+    student.get_student_info()
+
+
+# Завдання 2
+# Створіть список з 3-ма студентами, дані вводить
+# користувач. Після чого для кожного студента виведіть
+# інформацію про нього за допомогою метода.
+
+
+
+# Завдання 3
+# Створіть клас Circle з атрибутом radius. Додайте метод для
+# отримання площі кола
+
+# Завдання 4
+# Створіть клас BankAccount з атрибутами owner та balance.
+# Додайте метод deposit для поповнення рахунку
+# Додайте метод withdraw для зняття грошей з рахунку
+# Додайте метод info для виведення інформації про баланс
+
+# Завдання 5
+# Створіть клас Car з атрибутами brand(марка), year(рік
+# випуску), is_ready(чи готовий до поїздки, за замовчування
+# False).
+# Додайте метод start_engine який заводить двигун, і змінює
+# атрибут is_ready
+# Додайте метод move який виводить повідомлення, що
+# автомобіль їде, або ж ще не готовий в залежності від is_ready.
