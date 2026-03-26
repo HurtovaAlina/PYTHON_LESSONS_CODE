@@ -30,7 +30,15 @@ for student in students:
 # користувач. Після чого для кожного студента виведіть
 # інформацію про нього за допомогою метода.
 
+new_students = []
+students_qty = 3
+for i in range (students_qty):
+    name = input("Enter name: ")
+    age = int(input("Enter age: "))
+    new_students.append(Student(name, age))
 
+for student in new_students:
+    student.get_student_info()
 
 # Завдання 3
 # Створіть клас Circle з атрибутом radius. Додайте метод для
