@@ -2,6 +2,8 @@
 # Створіть клас Student з атрибутами name та age. Додайте
 # метод для виводу інформації у форматі «Ім’я: {name}, вік:
 # {age}»
+import math
+
 
 class Student:
 
@@ -44,11 +46,48 @@ for student in new_students:
 # Створіть клас Circle з атрибутом radius. Додайте метод для
 # отримання площі кола
 
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    def circle_area(self):
+        return self.radius**2*math.pi
+
+circle_1 = Circle(3)
+print(circle_1.circle_area())
+
 # Завдання 4
 # Створіть клас BankAccount з атрибутами owner та balance.
 # Додайте метод deposit для поповнення рахунку
 # Додайте метод withdraw для зняття грошей з рахунку
 # Додайте метод info для виведення інформації про баланс
+
+class BancAccount:
+
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance += amount
+
+    def withdraw(self, amount):
+        self.balance -= amount
+
+    def get_account_info(self):
+        print(f"Account info: owner {self.owner} current balance {self.balance}")
+
+
+account = BancAccount("Alina", 1000)
+account.get_account_info()
+deposit = float(input("Add money to account "))
+account.deposit(deposit)
+account.get_account_info()
+
+withdraw = float(input("Add amount to withdraw "))
+account.withdraw(withdraw)
+account.get_account_info()
+
 
 # Завдання 5
 # Створіть клас Car з атрибутами brand(марка), year(рік
