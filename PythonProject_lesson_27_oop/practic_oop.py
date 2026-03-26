@@ -112,6 +112,7 @@ class Car:
     def start_engine(self):
         if not self.is_ready:
             self.is_ready = True
+            print(f"Car {self.brand} is ready to move")
 
     def move(self):
         if self.is_ready:
