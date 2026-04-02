@@ -99,71 +99,167 @@ import math
 # об’єкт.
 # Створіть декілька співробітників, добавте їх у список та для
 # кожного викличте відповідні методи.
+#
+# class Manager:
+#
+#     def __init__(self, name: str, base_salary: float):
+#         self._name = name
+#         self._base_salary = base_salary
+#
+#     def get_salary(self) -> float:
+#         return self._base_salary
+#
+#
+# class Developer:
+#
+#     def __init__(self, name: str, base_salary: float, work_experience: int):
+#         self._name = name
+#         self._base_salary = base_salary
+#         self._work_experience = work_experience
+#
+#     def get_salary(self) -> float:
+#         if self._work_experience > 4:
+#             return self._base_salary * 1.2
+#         else:
+#             return self._base_salary
+#
+#
+#
+# class Intern:
+#     def __init__(self, name: str, base_salary: float):
+#         self._name = name
+#         self._base_salary = base_salary
+#
+#     def get_salary(self) -> float:
+#         return self._base_salary * 0.5
+#
+#
+#
+# def create_worker()-> Manager | Developer | Intern | None:
+#     type_of_worker = input("Enter type of worker: Manager/ Developer/ Intern ")
+#
+#     if type_of_worker == "Manager":
+#         name = input("Enter name ")
+#         base_salary = float(input("Enter salary "))
+#         return Manager(name, base_salary)
+#
+#     elif type_of_worker == "Developer":
+#         name = input("Enter name ")
+#         base_salary = float(input("Enter salary "))
+#         work_experience = int(input("Enter work experience "))
+#         return Developer(name, base_salary, work_experience)
+#
+#     elif type_of_worker == "Intern":
+#         name = input("Enter name ")
+#         base_salary = float(input("Enter salary "))
+#         return Intern(name, base_salary)
+#
+#     else:
+#         print("Invalid worker")
+#         return None
+#
+# workers = []
+#
+# for _ in range(3):
+#     worker = create_worker()
+#     if worker:
+#         workers.append(worker)
+#
+# for worker in workers:
+#     print(worker.get_salary())
 
-class Manager:
 
-    def __init__(self, name: str, base_salary: float):
-        self._name = name
-        self._base_salary = base_salary
+# Завдання 3
+# Створіть наступні класи:
+#  Car – атрибути speed
+#  Bicycle – атрибути speed
+#  Boat – атрибути speed
+# Методи:
+#  move() – виводить повідомлення про рух
+# o Car – їде по шосе зі швидкістю
+# o Bicycle – їде по дорозі зі швидкістю
+# o Boat – пливе по воді зі швидкістю
+#  check_speed(speed) – перевіряє чи правильна швидкість,
+# якщо ні то в __init__ треба викикати ValueError з
+# відповідним повідомленням
+# o Car – від 20 до 200
+# o Bicycle – від 10 до 30
+# o Boat – від 0 до 50
+# Напишіть функцію create_vehicle() яка запитує у
+# користувача тип транспорту та потрібні атрибути і повертає
+# об’єкт.
+# Створіть декілька транспортних засобів, добавте їх у список
+# та для кожної викличте відповідні методи.
 
-    def get_salary(self) -> float:
-        return self._base_salary
+class Car:
+
+    def __init__(self, speed: int):
+
+        self._check_speed(speed)
+
+        self._speed = speed
+
+    def move(self):
+        print(f"Car – їде по шосе зі швидкістю {self._speed}")
+
+    def _check_speed(self, speed : int):
+        if speed not in range(20, 201) :
+            raise ValueError("this speed is not allowed for Car")
 
 
-class Developer:
+class Bicycle:
 
-    def __init__(self, name: str, base_salary: float, work_experience: int):
-        self._name = name
-        self._base_salary = base_salary
-        self._work_experience = work_experience
+    def __init__(self, speed: int):
 
-    def get_salary(self) -> float:
-        if self._work_experience > 4:
-            return self._base_salary * 1.2
-        else:
-            return self._base_salary
+        self._check_speed(speed)
 
+        self._speed = speed
 
+    def move(self):
+        print(f"Bicycle – їде по дорозі зі швидкістю {self._speed}")
 
-class Intern:
-    def __init__(self, name: str, base_salary: float):
-        self._name = name
-        self._base_salary = base_salary
+    def _check_speed(self, speed : int):
+        if speed not in range(10, 31) :
+            raise ValueError("this speed is not allowed for Bicycle")
 
-    def get_salary(self) -> float:
-        return self._base_salary * 0.5
+class Boat:
 
+    def __init__(self, speed: int):
 
+        self._check_speed(speed)
 
-def create_worker()-> Manager | Developer | Intern | None:
-    type_of_worker = input("Enter type of worker: Manager/ Developer/ Intern ")
+        self._speed = speed
 
-    if type_of_worker == "Manager":
-        name = input("Enter name ")
-        base_salary = float(input("Enter salary "))
-        return Manager(name, base_salary)
+    def move(self):
+        print(f"Boat – пливе по воді зі швидкістю {self._speed}")
 
-    elif type_of_worker == "Developer":
-        name = input("Enter name ")
-        base_salary = float(input("Enter salary "))
-        work_experience = int(input("Enter work experience "))
-        return Developer(name, base_salary, work_experience)
+    def _check_speed(self, speed : int):
+        if speed not in range(0, 51) :
+            raise ValueError("this speed is not allowed for Boat")
 
-    elif type_of_worker == "Intern":
-        name = input("Enter name ")
-        base_salary = float(input("Enter salary "))
-        return Intern(name, base_salary)
+def create_vehicle() -> Car | Bicycle | Boat | None :
+
+    type_of_vehicle = input("Enter type of vehicle: Car/ Bicycle/ Boat ")
+
+    if type_of_vehicle == "Car":
+        speed = int(input("Enter speed "))
+        return Car(speed)
+
+    elif type_of_vehicle == "Bicycle":
+        speed = int(input("Enter speed "))
+        return Bicycle(speed)
+
+    elif type_of_vehicle == "Boat":
+        speed = int(input("Enter speed "))
+        return Boat(speed)
 
     else:
-        print("Invalid worker")
+        print("Invalid vehicle")
         return None
 
-workers = []
+vehicles = []
 
 for _ in range(3):
-    worker = create_worker()
-    if worker:
-        workers.append(worker)
-
-for worker in workers:
-    print(worker.get_salary())
+    vehicle = create_vehicle()
+    if vehicle:
+        vehicles.append(vehicle)
