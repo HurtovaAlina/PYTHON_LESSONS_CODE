@@ -83,4 +83,4 @@ for i in range(1,4):
         figures.append(figure)
 
 for figure in figures:
-    print(figure.display_info())
+    figure.display_info()
