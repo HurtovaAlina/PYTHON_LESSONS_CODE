@@ -119,7 +119,7 @@ from typing import List
 #         if song not in self.songs:
 #             self.songs.append(song)
 #         else:
-#             "Song is already in the list"
+#             print("Song is already in the list")
 #
 #     def remove_song(self, song):
 #         if song in self.songs:
@@ -134,7 +134,7 @@ from typing import List
 # print("Length of playlist")
 # print(len(playlist))
 #
-# for song in playlist.songs:
+# for song in playlist:
 #     print(song)
 #
 # playlist.add_song(song_4)
@@ -176,7 +176,15 @@ class Cart:
         if isinstance(other, Cart):
             new_items = self._items + other._items
             new_total = self._total + other._total
-        return Cart(new_items, round(new_total,2))
+            return Cart(new_items, round(new_total,2))
+        else:
+            print(f"{type(other)} is not a Cart")
+
+    def __iter__(self):
+        return iter(self._items)
+
+    def __contains__(self, item):
+        return item in self._items
 
 item_1 = "banana"
 item_2 = "apple"
@@ -192,3 +200,9 @@ print(cart_2)
 merged_items = items_in_cart + cart_2
 print(merged_items)
 print(len(merged_items))
+
+print("List of items from merged carts:")
+for item in merged_items:
+    print(item)
+
+print("water" in merged_items)
