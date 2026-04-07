@@ -103,8 +103,8 @@ print(song_1 == song_2)
 
 class Playlist:
 
-    def __init__(self):
-        self.songs: List[Song] = []
+    def __init__(self, songs:List[Song] ):
+        self.songs = songs
 
     def __len__(self):
         return len(self.songs)
@@ -125,4 +125,24 @@ class Playlist:
         if song in self.songs:
             self.songs.pop(song)
         else:
-            "Song is not in the list"
+            print(f"Song \"{song}\" is not in the list")
+
+song_4 = Song("Rolling in the Deep", "Adele")
+
+playlist = Playlist([song_1, song_2, song_3])
+
+print("Length of playlist")
+print(len(playlist))
+
+for song in playlist.songs:
+    print(song)
+
+playlist.add_song(song_4)
+
+for song in playlist.songs:
+    print(song)
+
+
+playlist.remove_song("Bad Guy")
+
+print (song_2 in playlist)
