@@ -114,14 +114,15 @@ class Warrior(Character):
 
     def power_strike(self, enemies):
         for enemy in enemies:
-            if enemy._level < self._level:
-                enemy._hp = 0
+            if isinstance(enemy, Character):
+                if enemy._level < self._level:
+                    enemy._hp = 0
 
 
 class Rogue(Character):
 
     def attack(self) -> int:
-        return self._dexterity * 3
+        return self._strength + self._level
 
 
 paladin_1 = Paladin("Paladin", 100, 10, 10, 10, 10, 10, 1)
