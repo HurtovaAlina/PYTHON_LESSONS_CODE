@@ -1,4 +1,15 @@
 from abc import ABC, abstractmethod
+from enum import Enum
+
+
+class Stat(Enum):
+    intelligence = "intelligence"
+    strength = "strength"
+    dexterity = "dexterity"
+    mana = "mana"
+    defense = "defense"
+
+
 
 class Character(ABC):
 
@@ -28,7 +39,7 @@ class Character(ABC):
         raise NotImplementedError
 
     def take_damage(self, damage: int):
-        damage -= self._defense
+        self._defense -= damage
         if damage > 0:
             self._hp -= damage
 
@@ -37,15 +48,15 @@ class Character(ABC):
             self._level += 1
 
     def increase_stat(self, stat: str):
-        if stat == "intelligence":
+        if stat == Stat.intelligence:
             self._intelligence +=1
-        elif stat == "strength":
+        elif stat == Stat.strength:
             self._strength += 1
-        elif stat == "dexterity":
+        elif stat == Stat.dexterity:
             self._dexterity += 1
-        elif stat == "mana":
+        elif stat == Stat.mana:
             self._mana += 1
-        elif stat == "defense":
+        elif stat == Stat.defense:
             self._defense += 1
 
     def rest(self):
@@ -65,15 +76,16 @@ class Paladin(Character):
             return self._strength * 4
         return self._strength
 
-    def shield(self) -> int:
+    def shield(self) :
         self._defense += 4 + self._level
 
     def unshield(self):
         self._defense -= 4 + self._level
 
-    def heal_ally(self, ally):
+    def heal_ally(self, ally:Character):
         if isinstance(ally, Character):
-            ally._hp += 5 + 2 * self._level + 0.5 * self._mana
+            heal_hp = 5 + 2 * self._level + 0.5 * self._mana
+            ally.real_heal(heal_hp)
 
 
 class Mage(Character):
@@ -90,6 +102,46 @@ class Mage(Character):
             return self._intelligence * 2 + 3
         return self._intelligence
 
+    def heal_ally(self, ally):
+        if isinstance(ally, Character):
+            heal_hp = 3 + 2 * self._level + 0.5 * self._mana
+            ally.real_heal(heal_hp)
+
+class Warrior(Character):
+
+    def attack(self) -> int:
+        return self._strength * 4
+
+    def power_strike(self, enemies):
+        for enemy in enemies:
+            if enemy._level < self._level:
+                enemy._hp = 0
+
+
+class Rogue(Character):
+
+    def attack(self) -> int:
+        return self._dexterity * 3
+
+
+paladin_1 = Paladin("Paladin", 100, 10, 10, 10, 10, 10, 1)
+paladin_1.level_up()
+print(paladin_1._hp)
+paladin_1.shield()
+paladin_1.take_damage(10)
+print(paladin_1._hp)
+
+ally = Paladin("Ally", 5, 5, 5, 5, 5, 5, 1)
+ally.unshield()
+ally.take_damage(3)
+print(ally._hp)
+
+paladin_1.heal_ally(ally)
+print(ally._hp)
+
+mage = Mage("Mage", 200, 100, 10, 10, 50, 10, 2)
+print(mage._hp)
+mage.attack()
 
 
 # Завдання 2
