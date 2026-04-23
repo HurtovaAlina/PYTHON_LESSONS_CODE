@@ -165,7 +165,9 @@ for i in range(1,4):
 cart.info()
 cart.save_cart()
 cart.load_cart()
-
+cart.info()
+cart.delete_item("butter", 12.09)
+cart.info()
 
 # Завдання 3
 # Створіть файл settings.json з базовими налаштуваннями
