@@ -10,6 +10,8 @@
 # Реалізуйте все через функції.
 
 import json
+from typing import Any
+
 #
 # users = {
 #     "alina": "qwerty123",
@@ -112,62 +114,62 @@ import json
 #  load(fiename) – завантажити дані з файла(за
 # замовчуванням cart.json)
 
-class Cart:
-
-    def __init__(self, user: str):
-        self._user = user
-        self._items: list[str] = []
-        self._total: float = 0
-
-    def add_item(self, item: str, price: float):
-        if item in self._items:
-            print(f"Item {item} already exists")
-        else:
-            self._items.append(item)
-            self._total += price
-
-    def delete_item(self, item: str, price: float):
-        if item in self._items:
-            self._items.remove(item)
-            self._total -= price
-
-        else:
-            print(f"Item {item} was not found")
-
-    def info(self):
-        print(f"User: {self._user} total: {self._total}")
-        print(f"items in the Cart: {self._items}")
-
-    def save_cart(self, filename: str = "cart.json"):
-        cart = {
-            "user": self._user,
-            "total": self._total,
-            "items": self._items
-
-                }
-        with open(filename, "w") as file:
-            json.dump(cart, file, indent=2)
-
-    def load_cart(self, filename: str = "cart.json"):
-        with open(filename, "r") as file:
-            cart = json.load(file)
-
-        self._user = cart["user"]
-        self._total = cart["total"]
-        self._items = cart["items"]
-
-cart = Cart("Alina")
-for i in range(1,4):
-    item = input("Enter item ")
-    price = float(input("Enter price "))
-    cart.add_item(item, price)
-
-cart.info()
-cart.save_cart()
-cart.load_cart()
-cart.info()
-cart.delete_item("butter", 12.09)
-cart.info()
+# class Cart:
+#
+#     def __init__(self, user: str):
+#         self._user = user
+#         self._items: list[str] = []
+#         self._total: float = 0
+#
+#     def add_item(self, item: str, price: float):
+#         if item in self._items:
+#             print(f"Item {item} already exists")
+#         else:
+#             self._items.append(item)
+#             self._total += price
+#
+#     def delete_item(self, item: str, price: float):
+#         if item in self._items:
+#             self._items.remove(item)
+#             self._total -= price
+#
+#         else:
+#             print(f"Item {item} was not found")
+#
+#     def info(self):
+#         print(f"User: {self._user} total: {self._total}")
+#         print(f"items in the Cart: {self._items}")
+#
+#     def save_cart(self, filename: str = "cart.json"):
+#         cart = {
+#             "user": self._user,
+#             "total": self._total,
+#             "items": self._items
+#
+#                 }
+#         with open(filename, "w") as file:
+#             json.dump(cart, file, encoding="utf-8", indent=2)
+#
+#     def load_cart(self, filename: str = "cart.json"):
+#         with open(filename, "r", encoding="utf-8") as file:
+#             cart = json.load(file)
+#
+#         self._user = cart["user"]
+#         self._total = cart["total"]
+#         self._items = cart["items"]
+#
+# cart = Cart("Alina")
+# for i in range(1,4):
+#     item = input("Enter item ")
+#     price = float(input("Enter price "))
+#     cart.add_item(item, price)
+#
+# cart.info()
+# cart.save_cart()
+# cart.load_cart()
+# cart.info()
+# cart.delete_item("butter", 12.09)
+# cart.info()
 
 # Завдання 3
 # Створіть файл settings.json з базовими налаштуваннями
@@ -179,3 +181,43 @@ cart.info()
 #  інструкція користувачу
 # Напишіть код, де завантажується налаштування і
 # створюються відповідні змінні size, background_color, …
+
+with open("settings.json", "w", encoding="utf-8") as file:
+    settings = {
+    "size": "500х600",
+    "background_color": "gray",
+    "buttons_color": "light gray",
+    "buttons_coordinates" : "[100, 50]",
+    "instruction" : "enjoy"
+    }
+
+    json.dump(settings, file, indent=2, ensure_ascii= False)
+
+
+def load_settings() -> dict[str, Any]:
+    with open("settings.json", "r", encoding="utf-8") as file:
+        settings = json.load(file)
+        return settings
+
+def update_size(new_size: str):
+    settings = load_settings()
+    settings["size"] = new_size
+    save_settings(settings)
+
+def update_color(new_color):
+    settings = load_settings()
+    settings["background_color"] = new_color
+    save_settings(settings)
+
+def save_settings(settings: dict[str, Any]):
+    with open("settings.json", "w", encoding="utf-8") as file:
+        json.dump(settings, file, indent=2, ensure_ascii= False)
+
+def show_info():
+    settings = load_settings()
+    info = json.dumps(settings, indent=2, ensure_ascii=False)
+    print(info)
+
+new_size = input("Enter new size ")
+update_size(new_size)
+show_info()

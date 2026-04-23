@@ -1,0 +1,7 @@
+{
+  "size": "400x700",
+  "background_color": "gray",
+  "buttons_color": "light gray",
+  "buttons_coordinates": "[100, 50]",
+  "instruction": "enjoy"
+}
