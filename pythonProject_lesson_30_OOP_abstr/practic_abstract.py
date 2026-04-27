@@ -70,97 +70,97 @@ class Robot(ABC):
 # # якщо прибирання вологе то додатково витратити воду.
 # # Також зменшує рівень заряду на energy
 #
-# class Cleaning_mode(Enum):
-#     wet = "wet"
-#     dry = "dry"
-#
-# class CleaningRobot(Robot):
-#
-#     def __init__(
-#             self,
-#             name: str,
-#             battery_level: int,
-#             cleaning_mode: Cleaning_mode = Cleaning_mode.dry,
-#             status: Status = Status.off,
-#             dust_capacity: int = 0,
-#             water_capacity: int = 100,
-#     ):
-#         super().__init__(name, battery_level, status)
-#
-#         self._cleaning_mode = cleaning_mode
-#         self._dust_capacity = dust_capacity
-#         self._water_capacity = water_capacity
-#
-#     def info(self):
-#         super().info()
-#         print(f"Cleaning mode: {self._cleaning_mode} \n"
-#             f"Dust capacity: {self._dust_capacity} \n"
-#             f"Water capacity: {self._water_capacity}"
-#         )
-#
-#     def turn_on(self):
-#         if self._dust_capacity == 100:
-#             print("Dust container is full")
-#             return
-#
-#         if self._cleaning_mode == Cleaning_mode.wet and self._water_capacity == 0:
-#             print("Water container is empty for wet cleaning")
-#             return
-#         super().turn_on()
-#
-#     def empty_dustbin(self):
-#         self._dust_capacity = 0
-#
-#
-#     def fill_water(self):
-#         self._water_capacity = 100
-#
-#     def swap_mode(self):
-#         if self._cleaning_mode == Cleaning_mode.wet:
-#             self._cleaning_mode = Cleaning_mode.dry
-#             print("Starting dry cleaning")
-#         else:
-#             self._cleaning_mode = Cleaning_mode.wet
-#             print("Starting wet cleaning")
-#
-#     def clean(self, energy: int, dust: int, water=None):
-#         if self._status != Status.on:
-#             print("Robot must be ON")
-#             return
-#
-#         self._status = Status.working
-#
-#         if self._cleaning_mode == Cleaning_mode.dry:
-#
-#             if self._dust_capacity+dust > 100:
-#                 print("Dust container is full")
-#                 return
-#
-#             self._dust_capacity = min(self._dust_capacity + dust, 100)
-#
-#         else:
-#
-#             if water is None:
-#                 print("Water amount required for wet cleaning")
-#                 return
-#
-#             if self._water_capacity < water:
-#                 print("Not enough water")
-#                 return
-#
-#             self._water_capacity -= water
-#
-#         self._battery_level = max(0, self._battery_level-energy)
-#
-#
-# cleaning_robot = CleaningRobot("Vasil", 100)
-# cleaning_robot.info()
-# cleaning_robot.turn_on()
-# cleaning_robot.clean(40, 50)
-# cleaning_robot.info()
-# cleaning_robot.swap_mode()
-# cleaning_robot.clean(70, 0, 60)
-# cleaning_robot.info()
+class Cleaning_mode(Enum):
+    wet = "wet"
+    dry = "dry"
+
+class CleaningRobot(Robot):
+
+    def __init__(
+            self,
+            name: str,
+            battery_level: int,
+            cleaning_mode: Cleaning_mode = Cleaning_mode.dry,
+            status: Status = Status.off,
+            dust_capacity: int = 0,
+            water_capacity: int = 100,
+    ):
+        super().__init__(name, battery_level, status)
+
+        self._cleaning_mode = cleaning_mode
+        self._dust_capacity = dust_capacity
+        self._water_capacity = water_capacity
+
+    def info(self):
+        super().info()
+        print(f"Cleaning mode: {self._cleaning_mode} \n"
+            f"Dust capacity: {self._dust_capacity} \n"
+            f"Water capacity: {self._water_capacity}"
+        )
+
+    def turn_on(self):
+        if self._dust_capacity == 100:
+            print("Dust container is full")
+            return
+
+        if self._cleaning_mode == Cleaning_mode.wet and self._water_capacity == 0:
+            print("Water container is empty for wet cleaning")
+            return
+        super().turn_on()
+
+    def empty_dustbin(self):
+        self._dust_capacity = 0
+
+
+    def fill_water(self):
+        self._water_capacity = 100
+
+    def swap_mode(self):
+        if self._cleaning_mode == Cleaning_mode.wet:
+            self._cleaning_mode = Cleaning_mode.dry
+            print("Starting dry cleaning")
+        else:
+            self._cleaning_mode = Cleaning_mode.wet
+            print("Starting wet cleaning")
+
+    def clean(self, energy: int, dust: int, water=None):
+        if self._status != Status.on:
+            print("Robot must be ON")
+            return
+
+        self._status = Status.working
+
+        if self._cleaning_mode == Cleaning_mode.dry:
+
+            if self._dust_capacity+dust > 100:
+                print("Dust container is full")
+                return
+
+            self._dust_capacity = min(self._dust_capacity + dust, 100)
+
+        else:
+
+            if water is None:
+                print("Water amount required for wet cleaning")
+                return
+
+            if self._water_capacity < water:
+                print("Not enough water")
+                return
+
+            self._water_capacity -= water
+
+        self._battery_level = max(0, self._battery_level-energy)
+
+
+cleaning_robot = CleaningRobot("Vasil", 100)
+cleaning_robot.info()
+cleaning_robot.turn_on()
+cleaning_robot.clean(40, 50)
+cleaning_robot.info()
+cleaning_robot.swap_mode()
+cleaning_robot.clean(70, 0, 60)
+cleaning_robot.info()
 
 # Завдання 3
 # Створіть дочірній клас SecurityRobot
