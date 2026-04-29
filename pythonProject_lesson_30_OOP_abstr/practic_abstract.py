@@ -190,71 +190,71 @@ class Alert(Enum):
     middle = "middle"
     high = "high"
 
-# class SecurityRobot(Robot):
-#
-#     def __init__(
-#             self,
-#             name: str,
-#             battery_level: int,
-#             min_speed: int,
-#             status: Status = Status.off,
-#             alert_level: Alert = Alert.low,
-#             dangerous_items: list[str] | None = None
-#     ):
-#         super().__init__(name, battery_level, status)
-#
-#         self._min_speed = min_speed
-#         self._alert_level = alert_level
-#
-#         if dangerous_items is None:
-#             self._dangerous_items = []
-#         else:
-#             self._dangerous_items = dangerous_items
-#
-#     def info(self):
-#         super().info()
-#         print(f"Min speed: {self._min_speed} \n"
-#             f"Alert level: {self._alert_level.value} \n"
-#             f"Dangerous items: {self._dangerous_items}"
-#         )
-#
-#     def turn_off(self):
-#         self._alert_level = Alert.low
-#         super().turn_off()
-#
-#     def add_dangerous_item(self, item):
-#         if item not in self._dangerous_items:
-#             self._dangerous_items.append(item)
-#
-#     def remove_dangerous_item(self, item):
-#         if item in self._dangerous_items:
-#             self._dangerous_items.remove(item)
-#         else:
-#             print("Item not found in dangerous items")
-#
-#     def detect(self, speed, item):
-#         if speed < self._min_speed:
-#             return
-#
-#         if self._alert_level == Alert.low  and speed > self._min_speed:
-#             self._alert_level = Alert.middle
-#
-#         if item in self._dangerous_items:
-#             self._alert_level = Alert.high
-#             return
-#
-# security_robot = SecurityRobot("Den", 100, 4)
-# security_robot.turn_on()
-# security_robot.info()
-# security_robot.add_dangerous_item("knife")
-# security_robot.detect(5, "knife")
-# security_robot.info()
-# security_robot.turn_off()
-# security_robot.add_dangerous_item("bat")
-# security_robot.add_dangerous_item("gun")
-# security_robot.info()
-# security_robot.remove_dangerous_item("bat")
-# security_robot.info()
+class SecurityRobot(Robot):
+
+    def __init__(
+            self,
+            name: str,
+            battery_level: int,
+            min_speed: int,
+            status: Status = Status.off,
+            alert_level: Alert = Alert.low,
+            dangerous_items: list[str] | None = None
+    ):
+        super().__init__(name, battery_level, status)
+
+        self._min_speed = min_speed
+        self._alert_level = alert_level
+
+        if dangerous_items is None:
+            self._dangerous_items = []
+        else:
+            self._dangerous_items = dangerous_items
+
+    def info(self):
+        super().info()
+        print(f"Min speed: {self._min_speed} \n"
+            f"Alert level: {self._alert_level.value} \n"
+            f"Dangerous items: {self._dangerous_items}"
+        )
+
+    def turn_off(self):
+        self._alert_level = Alert.low
+        super().turn_off()
+
+    def add_dangerous_item(self, item):
+        if item not in self._dangerous_items:
+            self._dangerous_items.append(item)
+
+    def remove_dangerous_item(self, item):
+        if item in self._dangerous_items:
+            self._dangerous_items.remove(item)
+        else:
+            print("Item not found in dangerous items")
+
+    def detect(self, speed, item):
+        if speed < self._min_speed:
+            return
+
+        if self._alert_level == Alert.low  and speed > self._min_speed:
+            self._alert_level = Alert.middle
+
+        if item in self._dangerous_items:
+            self._alert_level = Alert.high
+            return
+
+security_robot = SecurityRobot("Den", 100, 4)
+security_robot.turn_on()
+security_robot.info()
+security_robot.add_dangerous_item("knife")
+security_robot.detect(5, "knife")
+security_robot.info()
+security_robot.turn_off()
+security_robot.add_dangerous_item("bat")
+security_robot.add_dangerous_item("gun")
+security_robot.info()
+security_robot.remove_dangerous_item("bat")
+security_robot.info()
 
 # Завдання 4
 # Створіть дочірній клас AssistantRobot
