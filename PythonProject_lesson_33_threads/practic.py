@@ -4,6 +4,8 @@
 # у списку. Результати обчислень виведіть на екран.
 
 import threading
+import time
+from typing import List
 
 numbers = []
 count = int(input("Enter count of numbers: "))
@@ -32,11 +34,11 @@ thread_min = threading.Thread(
 
 thread_max.start()
 thread_max.join()
-print(f"Max = {res}")
+print(f"Result = {res}")
 
 thread_min.start()
 thread_min.join()
-print(f"Min = {res}")
+print(f"Result = {res}")
 
 # Завдання 2
 # Користувач вводить з клавіатури значення у список.
@@ -44,35 +46,36 @@ print(f"Min = {res}")
 # середнє арифметичне у списку. Результати обчислень
 # виведіть на екран.
 
-# numbers = list(map(int,input("Enter numbers via ',' ").split(",")))
-# print(numbers)
-#
-# def sum_of_numbers(numbers, res_sum:dict[str, int]):
-#     res_sum["sum"] = sum(numbers)
-#
-# def average(numbers, res_avg:dict[str, int]):
-#     res_avg["average"] = sum(numbers)/len(numbers)
-#
-# res_sum: dict[str, int] = {}
-# res_avg: dict[str, int] = {}
-#
-# thread_sum = threading.Thread(
-#     target = sum_of_numbers,
-#     args = (numbers, res_sum),
-# )
-#
-# thread_avg = threading.Thread(
-#     target = average,
-#     args = (numbers, res_avg),
-# )
-#
-# thread_sum.start()
-# thread_sum.join()
-# print(f"Sum = {res_sum}")
-#
-# thread_avg.start()
-# thread_avg.join()
-# print(f"Average = {res_avg}")
+numbers = list(map(int,input("Enter numbers via ',' ").split(",")))
+print(numbers)
+
+def sum_of_numbers(numbers, res:dict[str, int]):
+    time.sleep(1)
+    res["sum"] = sum(numbers)
+
+def average(numbers, res:dict[str, int]):
+    time.sleep(2)
+    res["average"] = sum(numbers)/len(numbers)
+
+res: dict[str, int] = {}
+
+thread_sum = threading.Thread(
+    target = sum_of_numbers,
+    args = (numbers, res),
+)
+
+thread_avg = threading.Thread(
+    target = average,
+    args = (numbers, res),
+)
+
+thread_sum.start()
+thread_sum.join()
+print(f"Result = {res}")
+
+thread_avg.start()
+thread_avg.join()
+print(f"Result = {res}")
 
 
 # Завдання 3
@@ -90,4 +93,40 @@ path_to_file = input("Enter path ")
 with open(path_to_file, "r") as file:
     numbers = list(map(int, file.read().split(",")))
 
-# def
+def new_file_with_evens(numbers:List[int], res:dict[str, int]):
+    evens = list(filter(lambda n: n % 2 == 0, numbers))
+    res["evens"] = len(evens)
+    evens = str(evens)
+
+    with open("evens.txt", "w") as file:
+        file.write(evens)
+
+
+def new_file_with_odds(numbers:List[int], res:dict[str, int]):
+    odds = list(filter(lambda n: n % 2 != 0, numbers))
+    res["odds"] = len(odds)
+    odds = str(odds)
+
+    with open("odds.txt", "w") as file:
+        file.write(odds)
+
+
+res: dict[str, int] = {}
+
+thread_evens = threading.Thread(
+    target = new_file_with_evens,
+    args = (numbers, res),
+)
+
+thread_odds = threading.Thread(
+    target = new_file_with_odds,
+    args = (numbers, res),
+)
+
+thread_evens.start()
+thread_evens.join()
+print(f"Result = {res}")
+
+thread_odds.start()
+thread_odds.join()
+print(f"Result = {res}")
