@@ -48,5 +48,29 @@ print(f"Min = {res_min}")
 numbers = list(map(int,input("Enter numbers via ',' ").split(",")))
 print(numbers)
 
-def sum_of_numbers(numbers, res):
-    res
+def sum_of_numbers(numbers, res_sum:dict[str, int]):
+    res_sum["sum"] = sum(numbers)
+
+def average(numbers, res_avg:dict[str, int]):
+    res_avg["average"] = sum(numbers)/len(numbers)
+
+res_sum: dict[str, int] = {}
+res_avg: dict[str, int] = {}
+
+thread_sum = threading.Thread(
+    target = sum_of_numbers,
+    args = (numbers, res_sum),
+)
+
+thread_avg = threading.Thread(
+    target = average,
+    args = (numbers, res_avg),
+)
+
+thread_sum.start()
+thread_sum.join()
+print(f"Sum = {res_sum}")
+
+thread_avg.start()
+thread_avg.join()
+print(f"Average = {res_avg}")
