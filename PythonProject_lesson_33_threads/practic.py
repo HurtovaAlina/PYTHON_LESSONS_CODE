@@ -11,33 +11,32 @@ for _ in range(count):
     number = int(input("Enter number: "))
     numbers.append(number)
 
-def find_max(numbers: list[int], res_max:dict[str, int]):
-    res_max["max"] = max(numbers)
+def find_max(numbers: list[int], res:dict[str, int]):
+    res["max"] = max(numbers)
 
-def find_min(numbers: list[int], res_min:dict[str, int]):
-    res_min["min"] = min(numbers)
+def find_min(numbers: list[int], res:dict[str, int]):
+    res["min"] = min(numbers)
 
 
-res_max: dict[str, int] = {}
-res_min: dict[str, int] = {}
+res: dict[str, int] = {}
 
 thread_max = threading.Thread(
     target = find_max,
-    args = (numbers, res_max),
+    args = (numbers, res),
 )
 
 thread_min = threading.Thread(
     target = find_min,
-    args = (numbers, res_min),
+    args = (numbers, res),
 )
 
 thread_max.start()
 thread_max.join()
-print(f"Max = {res_max}")
+print(f"Max = {res}")
 
 thread_min.start()
 thread_min.join()
-print(f"Min = {res_min}")
+print(f"Min = {res}")
 
 # Завдання 2
 # Користувач вводить з клавіатури значення у список.
@@ -45,32 +44,50 @@ print(f"Min = {res_min}")
 # середнє арифметичне у списку. Результати обчислень
 # виведіть на екран.
 
-numbers = list(map(int,input("Enter numbers via ',' ").split(",")))
-print(numbers)
+# numbers = list(map(int,input("Enter numbers via ',' ").split(",")))
+# print(numbers)
+#
+# def sum_of_numbers(numbers, res_sum:dict[str, int]):
+#     res_sum["sum"] = sum(numbers)
+#
+# def average(numbers, res_avg:dict[str, int]):
+#     res_avg["average"] = sum(numbers)/len(numbers)
+#
+# res_sum: dict[str, int] = {}
+# res_avg: dict[str, int] = {}
+#
+# thread_sum = threading.Thread(
+#     target = sum_of_numbers,
+#     args = (numbers, res_sum),
+# )
+#
+# thread_avg = threading.Thread(
+#     target = average,
+#     args = (numbers, res_avg),
+# )
+#
+# thread_sum.start()
+# thread_sum.join()
+# print(f"Sum = {res_sum}")
+#
+# thread_avg.start()
+# thread_avg.join()
+# print(f"Average = {res_avg}")
 
-def sum_of_numbers(numbers, res_sum:dict[str, int]):
-    res_sum["sum"] = sum(numbers)
 
-def average(numbers, res_avg:dict[str, int]):
-    res_avg["average"] = sum(numbers)/len(numbers)
+# Завдання 3
+# Користувач вводить з клавіатури шлях до файлу, що
+# містить набір чисел. Після чого запускаються два потоки.
+# Перший потік створює новий файл, в який запише лише
+# парні елементи списку. Другий потік створює новий файл,
+# в який запише лише непарні елементи списку. Кількість
+# парних і непарних елементів виводиться на екран.
 
-res_sum: dict[str, int] = {}
-res_avg: dict[str, int] = {}
 
-thread_sum = threading.Thread(
-    target = sum_of_numbers,
-    args = (numbers, res_sum),
-)
+# /Users/ahurt/Documents/DOCUMENTS/AI COURSE/PHYTON_LESSONS_CODE/PythonProject_lesson_33_threads/numbers.txt
+path_to_file = input("Enter path ")
 
-thread_avg = threading.Thread(
-    target = average,
-    args = (numbers, res_avg),
-)
+with open(path_to_file, "r") as file:
+    numbers = list(map(int, file.read().split(",")))
 
-thread_sum.start()
-thread_sum.join()
-print(f"Sum = {res_sum}")
-
-thread_avg.start()
-thread_avg.join()
-print(f"Average = {res_avg}")
+# def
