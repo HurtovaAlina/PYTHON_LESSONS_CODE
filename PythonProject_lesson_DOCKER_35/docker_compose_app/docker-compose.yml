@@ -1,0 +1,11 @@
+services:
+  hello1:
+    image: hello
+    build: .
+
+    environment:
+      TEXT: "hi"
+
+    ports:
+      # port outside : port inside
+      - 8081:8080
