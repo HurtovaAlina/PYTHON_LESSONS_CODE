@@ -1,0 +1,39 @@
+version: "3.9"
+services:
+  app1:
+    build: .
+    image: rand-line
+    environment:
+      SYMBOL: $
+      MIN_LEN: 5
+      MAX_LEN: 50
+      DELAY: 5
+
+
+  app2:
+    build: .
+    image: rand-line
+    environment:
+      SYMBOL: +
+      MIN_LEN: 10
+      MAX_LEN: 100
+      DELAY: 4
+
+  app3:
+    build: .
+    image: rand-line
+    environment:
+      SYMBOL: o
+      MIN_LEN: 3
+      MAX_LEN: 30
+      DELAY: 3
+
+#docker-compose up -d app1
+#docker-compose up -d -> all
+#docker images
+#docker compose stop app1
+#docker-compose logs -f  -> run all containers
+#docker-compose down -> delete all
+#docker-compose ps to see containers
+#docker-compose rm -f app1
+#docker-compose down  -> stop all containers

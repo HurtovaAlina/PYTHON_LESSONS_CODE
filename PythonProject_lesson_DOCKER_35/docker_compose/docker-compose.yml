@@ -1,0 +1,53 @@
+# discribe container settings
+services:
+#service name 1
+  rand_num1:
+  # how to create image
+    image: rand-num # image name
+    build: . # path to Dockerfile folder (where is Docker file)
+
+    # settings -> reads in Settings class, uses in main.py
+    environment:
+      START_RANGE: 0
+      END_RANGE: 10
+
+#docker compose up -d --build
+
+#reading .env file with sensitive info
+    env_file:
+      - .env
+
+
+  rand_num2:
+    # how to create image
+    image: rand-num # image name
+    build: . # path to Dockerfile folder (where is Docker file)
+
+    # settings
+    environment:
+      START_RANGE: 0
+      END_RANGE: 100
+
+    #docker compose up -d --build
+
+    #reading .env file with sensitive info
+    env_file:
+      - .env
+
+  rand_num3:
+    # how to create image
+    image: rand-num # image name
+    build: . # path to Dockerfile folder (where is Docker file)
+
+    # settings
+    environment:
+      START_RANGE: 1000
+      END_RANGE: 2000
+
+    #docker compose up -d --build
+
+    #reading .env file with sensitive info
+    env_file:
+      - .env
+      -
+#docker-compose logs -f
