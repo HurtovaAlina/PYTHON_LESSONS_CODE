@@ -88,3 +88,35 @@ pip install -r requirements.txt
 3. Виконуйте практичні завдання та слідуйте інструкціям у блоках курсу.
 
 ---
+
+DOCKER
+
+● python:3.11-slim
+    FROM python:3.11-slim
+● робоча директорія – /app
+    WORKDIR /app
+● скопіюйте файл requirements.txt
+    COPY ./requirements.txt ./requirements.txt
+● встановіть потрібні бібліотеки
+    RUN pip install -r requirements.txt
+●скопіюйте увесь код
+    COPY ./ ./
+● Вкажіть хост та порт
+    ENV HOST="0.0.0.0"
+    ENV PORT=8080
+● Відкрийте порт 8080
+    EXPOSE 8080
+● запустіть основний файл
+    CMD ["python3", "main.py"]
+
+Через термінал перейдіть в папку з Докер файлом
+    cd docker
+Збережіть усі необхідні бібліотеки
+    pip freeze > requirements.txt
+Перевірте вміст файлу requirements.txt
+Створіть образ app_1
+    docker build -t app1 .
+Cтворіть контейнер container1 з parametr =3
+docker run -d -p 8080:8080 -e PARAMETR=3 --name container1 app1
+Подивіться логи
+docker logs -f container1
