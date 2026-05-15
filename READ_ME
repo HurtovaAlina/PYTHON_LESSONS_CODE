@@ -120,3 +120,39 @@ Cтворіть контейнер container1 з parametr =3
 docker run -d -p 8080:8080 -e PARAMETR=3 --name container1 app1
 Подивіться логи
 docker logs -f container1
+
+Docker compose
+docker-compose.yml
+
+version: "3.9"
+services:
+films1:
+build: .
+image: film-app
+environment:
+MAX_BOOKS: 5
+DATA_FILE_PATH: "./films.json"
+ports:
+- 8081:8080
+
+Збережіть усі необхідні бібліотеки
+pip freeze > requirements.txt
+Перевірте вміст файлу requirements.txt
+
+Запустіть усі контейнери
+docker compose up --build
+Подивіться на свої зображення
+docker images
+Подивіться на контейнери
+docker ps
+Подивіться логи контейнерів
+docker compose logs
+Перевірте роботу серверів
+Зупинити контейнери і видалити
+docker-compose down
+
+Остановить без удаления контейнеров:
+docker-compose stop
+
+Остановить только один сервис:
+docker-compose stop app1
