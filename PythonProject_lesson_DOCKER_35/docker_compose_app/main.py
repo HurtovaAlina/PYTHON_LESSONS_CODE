@@ -6,6 +6,5 @@ if __name__ == "__main__":
     uvicorn.run(
         "application:app",
         host=settings.host,
-        port=settings.port,
-        reload=True
+        port=settings.port
     )

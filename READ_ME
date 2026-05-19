@@ -140,7 +140,7 @@ pip freeze > requirements.txt
 Перевірте вміст файлу requirements.txt
 
 Запустіть усі контейнери
-docker compose up --build
+docker compose up -d --build
 Подивіться на свої зображення
 docker images
 Подивіться на контейнери
