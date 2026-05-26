@@ -92,3 +92,48 @@
 -- SELECT GROUP_NAME, AVG(AVG_MARK)
 -- FROM STUDENTS
 -- GROUP BY GROUP_NAME
+
+-- вивести максимальну серед максимальних середніх
+-- SELECT MAX(AVG_MARK)
+-- FROM STUDENTS
+
+
+-- SELECT *
+-- FROM STUDENTS
+-- WHERE AVG_MARK = (
+-- 	SELECT MAX(AVG_MARK)
+--  	FROM STUDENTS
+-- 	 )
+
+
+
+-- вивести групи і середні оцінки
+-- WITH GROUP_INFO AS (
+-- 	SELECT GROUP_NAME, AVG(AVG_MARK) AS GROUP_MARK
+-- 	FROM STUDENTS
+-- 	GROUP BY GROUP_NAME
+-- )
+-- SELECT GROUP_NAME, GROUP_MARK
+-- FROM GROUP_INFO
+-- WHERE GROUP_MARK = (
+-- 	SELECT MAX(GROUP_MARK)
+-- 	FROM GROUP_INFO
+-- )
+
+--ВИВЕСТИ СТУДЕНТІВ ЯКІ НАВЧАЮТЬСЯ В ГРУПІ З НАЙВИЩОЮ СЕРЕДНЬОЇ ОЦІНКОЮ
+
+-- WITH GROUP_INFO AS (
+-- 	SELECT GROUP_NAME, AVG(AVG_MARK) AS GROUP_MARK
+-- 	FROM STUDENTS
+-- 	GROUP BY GROUP_NAME
+-- )
+-- SELECT *
+-- FROM STUDENTS
+-- WHERE GROUP_NAME = (
+-- 	SELECT GROUP_NAME
+-- 	FROM GROUP_INFO
+-- 	WHERE GROUP_MARK = (
+-- 		SELECT MAX(GROUP_MARK)
+-- 		FROM GROUP_INFO
+-- 	)
+-- )
