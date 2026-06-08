@@ -463,12 +463,7 @@
 -- ORDER BY BUILDING
 
 
--- Вивести загальну суму фінансування для кожного корпусу.
-
--- SELECT BUILDING, SUM(FINANCING) AS TOTAL_FINANCING
--- FROM DEPARTMENTS
--- GROUP BY BUILDING
--- ORDER BY BUILDING
+financing
 
 
 -- Вивести кількість відділень у кожному корпусі.
@@ -563,3 +558,9 @@
 -- 	SELECT MAX(ENDTIME)
 -- 	FROM EXAMINATIONS
 -- )
+
+-- палата в будівлі з фінансуванням > 200 000
+SELECT *
+FROM WARDS W
+JOIN DEPARTMENTS D ON D.BUILDING = W.BUILDING
+WHERE D.FINANCING > 250000
