@@ -1,0 +1,138 @@
+Last login: Thu Jun 11 09:28:56 on ttys000
+ahurt@DYYVL6V99G ~ % redis-cli
+127.0.0.1:6379> set username Alina
+OK
+127.0.0.1:6379> rpush todo_list "Cook dinner" "Learn Redis"
+(integer) 2
+127.0.0.1:6379> lrange todo_list 0 -1
+1) "Cook dinner"
+2) "Learn Redis"
+127.0.0.1:6379> hmset user_data: age 23 country Ukraine
+OK
+127.0.0.1:6379> hgetall user_data:
+1) "age"
+2) "23"
+3) "country"
+4) "Ukraine"
+127.0.0.1:6379> sadd tags programming redis tutorial
+(integer) 3
+127.0.0.1:6379> smembers tags
+1) "programming"
+2) "redis"
+3) "tutorial"
+127.0.0.1:6379> incrby counter 5
+(integer) 5
+127.0.0.1:6379> get counter
+"5"
+127.0.0.1:6379> setex session_token 12 abc123
+OK
+127.0.0.1:6379> get session_token
+"abc123"
+127.0.0.1:6379> get session_token
+(nil)
+127.0.0.1:6379> del username
+(integer) 1
+127.0.0.1:6379> get username
+(nil)
+127.0.0.1:6379> set user:1:name Alina
+OK
+127.0.0.1:6379> keys user:*
+1) "user:1:name"
+127.0.0.1:6379> set username Alina
+OK
+127.0.0.1:6379> keys user*
+1) "user:1:name"
+2) "username"
+3) "user_data:"
+127.0.0.1:6379> setbit online_status 0 1
+(integer) 0
+127.0.0.1:6379> getbit online_status 0
+(integer) 1
+127.0.0.1:6379> multi
+OK
+127.0.0.1:6379(TX)> set balance 1000
+QUEUED
+127.0.0.1:6379(TX)> set amount 100
+QUEUED
+127.0.0.1:6379(TX)> exec
+1) OK
+2) OK
+127.0.0.1:6379> get balance
+"1000"
+127.0.0.1:6379> get amount
+"100"
+127.0.0.1:6379> sadd cache:populat_articles 101 102 103 104
+(integer) 4
+127.0.0.1:6379> smembers cache:populat_articles
+1) "101"
+2) "102"
+3) "103"
+4) "104"
+127.0.0.1:6379> sadd set1 1 2 3 4 5
+(integer) 5
+127.0.0.1:6379> sadd set2 4 5 6 7 8
+(integer) 5
+127.0.0.1:6379> sunionstore union_set set1 set2
+(integer) 8
+127.0.0.1:6379> smembers union_set
+1) "1"
+2) "2"
+3) "3"
+4) "4"
+5) "5"
+6) "6"
+7) "7"
+8) "8"
+127.0.0.1:6379> sinterstore intersection_set set1 set2
+(integer) 2
+127.0.0.1:6379> smembers intersection_set
+1) "4"
+2) "5"
+127.0.0.1:6379> subscribe messages
+1) "subscribe"
+2) "messages"
+3) (integer) 1
+ahurt@DYYVL6V99G ~ % redis-cli
+127.0.0.1:6379> publish messages "hello redis"
+(integer) 1
+
+1) "message"
+2) "messages"
+3) "hello redis"
+Reading messages... (press Ctrl-C to quit or any key to type command)
+127.0.0.1:6379(subscribed mode)> quit
+
+127.0.0.1:6379> geoadd locations 22.2879 48.6208 Uzhhorod
+(integer) 1
+127.0.0.1:6379> geoadd locations 48.4647 35.0462 Dnipro
+(integer) 1
+127.0.0.1:6379> zrange locations 0 -1
+1) "Dnipro"
+2) "Uzhhorod"
+127.0.0.1:6379> lpush tasks: task1 task2 task3
+(integer) 3
+127.0.0.1:6379> lrange tasks 0 -1
+(empty array)
+127.0.0.1:6379> lrange tasks: 0 -1
+1) "task3"
+2) "task2"
+3) "task1"
+127.0.0.1:6379> rpush tasks: task4
+(integer) 4
+127.0.0.1:6379> lrange tasks: 0 -1
+1) "task3"
+2) "task2"
+3) "task1"
+4) "task4"
+127.0.0.1:6379> lrem tasks: 1 task1
+(integer) 1
+127.0.0.1:6379> lrange tasks: 0 -1
+1) "task3"
+2) "task2"
+3) "task4"
+127.0.0.1:6379> rpush message_queue "hello" "how are you" "where are you"
+(integer) 3
+127.0.0.1:6379> lrange message_queue 0 -1
+1) "hello"
+2) "how are you"
+3) "where are you"
