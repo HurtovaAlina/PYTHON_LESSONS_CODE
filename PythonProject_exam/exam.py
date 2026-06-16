@@ -303,6 +303,6 @@ def main() -> None:
             print("Program is finished")
             break
         else:
-                print("Action is not allowed")
+            print("Action is not allowed")
 
 main()
