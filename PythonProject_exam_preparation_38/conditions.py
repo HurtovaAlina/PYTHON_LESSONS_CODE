@@ -35,3 +35,16 @@
 # 20. Пора року
 # Введіть номер місяця (1–12). Виведіть відповідну пору року.
 # Підказка: Зима: 12,1,2; Весна: 3,4,5; Літо: 6,7,8; Осінь: 9,10,11. Використайте оператор in.
+
+month = int(input("Enter month [1,2,3,4,5,6,7,8,9,10,11,12] "))
+
+if month in (12,1,2):
+    print("winter")
+elif month in (3,4,5):
+    print("spring")
+elif month in (6,7,8):
+    print("summer")
+elif month in (9,10,11):
+    print("autumn")
+else:
+    print("Wrong value")
